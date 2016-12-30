@@ -1,6 +1,6 @@
 import "styles/main";
 
-console.log('hele');
+console.log('eeee');
 
 var $ = require("jquery");
 

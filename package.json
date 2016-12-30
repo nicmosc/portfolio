@@ -4,10 +4,11 @@
   "description": "A little website I made to showcase my work",
   "main": "index.js",
   "scripts": {
+    "clean": "rm -rf ./docs/",
     "test": "echo \"Error: no test specified\" && exit 1",
-    "dev": "nodemon --preserve-symlinks src/app.js --ignore docs/ || true",
-    "start": "node src/app.js",
-    "webpack": "webpack"
+    "dev": "npm run clean && nodemon -e html src/app.js --ignore docs/ || true",
+    "start": "npm run clean && node src/app.js",
+    "webpack": "webpack --progress"
   },
   "keywords": [],
   "author": "Nicolaos Moscholios",

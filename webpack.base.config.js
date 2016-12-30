@@ -38,10 +38,19 @@ module.exports = {
       loaders: [
         'babel?presets[]=es2015&presets[]=stage-0',
       ]
+    // }, {
+    //   test: /\.css$/,
+    //   loader: extractCSS.extract('style', '!css!postcss'),
+    // }, {
     }, {
-      test: /\.css$/,
-      loader: extractCSS.extract('style', '!css!postcss'),
-    }, {
+      test: '/\.css$/',
+      loaders: [   // order starts from bottom!
+        'style',
+        'css?localIdentName=[name]__[local]--[hash:base64:5]',
+        'postcss',
+        'css-loader?modules&camelCase=dashes'
+      ]
+    },{
       test: /\.less$/,
       loader: extractCSS.extract('style', '!css!postcss!less'),
     }, {

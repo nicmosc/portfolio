@@ -14,7 +14,7 @@ const browserSync = BrowserSync.create('portfolio');
 
 browserSync.init({
   logSnippet: false,
-  notify: true,
+  notify: false,
   port: 3001,
   logLevel: 'silent',
 });
@@ -79,7 +79,7 @@ server.on('server:register:ready', () => {
     method: 'GET',
     path: '/',
     handler: (request, reply) => {
-      reply.view('index', { stuff: 'My home page' });
+      reply.view('index', { stuff: 'My page' });
     },
   });
 
