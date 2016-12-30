@@ -6,7 +6,7 @@
   "scripts": {
     "clean": "rm -rf ./docs/",
     "test": "echo \"Error: no test specified\" && exit 1",
-    "dev": "npm run clean && nodemon -e html src/app.js --ignore docs/ || true",
+    "dev": "nodemon -e html src/app.js --ignore docs/ || true",
     "start": "npm run clean && node src/app.js",
     "webpack": "webpack --progress"
   },
