@@ -16,7 +16,7 @@ browserSync.init({
   logSnippet: false,
   notify: false,
   port: 3001,
-  logLevel: 'silent',
+  logLevel: 'info',
 });
 
 
