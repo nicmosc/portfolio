@@ -68,8 +68,8 @@ server.register(require('vision'), (err) => {
     layout: true,
     path: './templates',
     layoutPath: './templates/layout',
-    partialsPath: './templates/components'
-    // helpersPath: './templates/helpers'
+    partialsPath: './templates/partials'
+    // helpersPath: './templates/utils'
   });
 });
 
