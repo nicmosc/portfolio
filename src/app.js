@@ -10,7 +10,7 @@ const webpackConfig = require('../webpack.dev.config');
 
 
 // SETUP BROWSER SYNC
-const browserSync = BrowserSync.create('template');
+const browserSync = BrowserSync.create('portfolio');
 
 browserSync.init({
   logSnippet: false,
@@ -68,6 +68,7 @@ server.register(require('vision'), (err) => {
     layout: true,
     path: './templates',
     layoutPath: './templates/layout',
+    partialsPath: './templates/components'
     // helpersPath: './templates/helpers'
   });
 });

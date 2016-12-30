@@ -1,7 +1,7 @@
 {
-  "name": "nodejs-template",
+  "name": "moscholios-portfolio",
   "version": "0.1.0",
-  "description": "A NodeJS template using a Hapi server",
+  "description": "A little website I made to showcase my work",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
