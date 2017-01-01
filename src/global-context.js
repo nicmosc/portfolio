@@ -1,5 +1,7 @@
-module.exports = {
+const env = process.env.NODE_ENV === 'production';
 
+module.exports = {
+  is_production: env,
   meta: {
     title: 'Nicolaos Moscholios | Creative Software Engineer',
     description: "Hello. My name is Nick. I'm a recent Computer Science graduate currently working at Drawbotics, with a passion for UI and 3D design.",
