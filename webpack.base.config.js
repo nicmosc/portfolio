@@ -34,6 +34,7 @@ module.exports = {
   module: {
     loaders: [{
       test: /\.jsx?$/,
+      exclude: /node_modules/,
       include: jsDirs,
       loaders: [
         'babel?presets[]=es2015&presets[]=stage-0',
@@ -74,9 +75,11 @@ module.exports = {
     }, {
       test: /\.jpg$/,
       loader: 'url?limit=10000&mimetype=image/jpg&name=/[name].[ext]',
+      exclude: /src/,
     }, {
       test: /\.png$/,
       loader: 'url?limit=10000&mimetype=image/png&name=/[name].[ext]',
+      exclude: /src/,
     }],
   },
   postcss: function () {

@@ -111,6 +111,18 @@ server.on('server:register:ready', () => {
     },
   });
 
+  server.route({
+    path: "/static/{path*}",
+    method: "GET",
+    handler: {
+        directory: {
+            path: path.resolve(__dirname, '../src/static'),
+            listing: true,
+            index: false
+        }
+    }
+});
+
   server.start((err) => {
     if (err) {
       config.logger.error(err, 'app.js');
