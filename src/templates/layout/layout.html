@@ -1,16 +1,29 @@
 <!DOCTYPE html>
 <html>
   <head>
+    <title>{{meta_title}}</title>
+
+    <!-- SEO meta tags -->
+    <meta name="title" content="{{meta_title}}">
+    <meta property="title" content={{meta_title}}">
+    <meta name="description" content="">
     <meta charset="utf-8" />
     <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" name="viewport" />
-    <title>My website</title>
+
+    <!-- StyleSheet tags -->
     <link rel="stylesheet" href="/bundle/styles.css">
     {{>shared/favicons}}
   </head>
   <body>
     {{>components/header}}
     {{{content}}}
+
+    <!-- JavaScript tags -->
     <script src="/bundle/app.bundle.js"></script>
-    <script async="" src="http://localhost:3001/browser-sync/browser-sync-client.js?v=2.18.2"></script>
+
+    <!-- BrowserSync -->
+    <script id="__bs_script__">//<![CDATA[
+    document.write("<script async src='http://HOST:3001/browser-sync/browser-sync-client.js?v=2.18.5'><\/script>".replace("HOST", location.hostname));
+//]]></script>
   </body>
 </html>

@@ -9,12 +9,15 @@ const config = require('./config');
 const webpackConfig = require('../webpack.dev.config');
 
 
+const globalContext = require('./global-context');
+
+
 // SETUP BROWSER SYNC
 const browserSync = BrowserSync.create('portfolio');
 
 browserSync.init({
   logSnippet: false,
-  notify: false,
+  notify: true,
   port: 3001,
   logLevel: 'info',
 });
@@ -68,8 +71,9 @@ server.register(require('vision'), (err) => {
     layout: true,
     path: './templates',
     layoutPath: './templates/layout',
-    partialsPath: './templates/partials'
-    // helpersPath: './templates/utils'
+    partialsPath: './templates/partials',
+    // helpersPath: './templates/utils',
+    context: globalContext,
   });
 });
 
