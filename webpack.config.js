@@ -4,7 +4,7 @@ const webpackBaseConfig = require('./webpack.base.config.js');
 
 
 module.exports = Object.assign({}, webpackBaseConfig, {
-  devtool: 'cheap-module-source-map',
+  devtool: 'source-map',
   output: Object.assign({}, webpackBaseConfig.output, {
     path: path.resolve(__dirname, 'docs', 'bundle'),
     publicPath: '/bundle',
