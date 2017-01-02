@@ -45,34 +45,34 @@
 /***/ 0:
 /***/ function(module, exports, __webpack_require__) {
 
-	module.exports = __webpack_require__(22);
+	module.exports = __webpack_require__(23);
 
 
 /***/ },
 
-/***/ 22:
+/***/ 23:
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
 	
-	__webpack_require__(23);
+	__webpack_require__(24);
 	
 	console.log('eeee');
 	
-	var $ = __webpack_require__(35);
+	var $ = __webpack_require__(37);
 	
 	$(document).ready(function () {});
 
 /***/ },
 
-/***/ 23:
+/***/ 24:
 /***/ function(module, exports) {
 
 	// removed by extract-text-webpack-plugin
 
 /***/ },
 
-/***/ 35:
+/***/ 37:
 /***/ function(module, exports, __webpack_require__) {
 
 	var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;/*!
