@@ -40,39 +40,29 @@
 /******/ 	return __webpack_require__(0);
 /******/ })
 /************************************************************************/
-/******/ ({
-
-/***/ 0:
+/******/ ([
+/* 0 */
 /***/ function(module, exports, __webpack_require__) {
 
-	module.exports = __webpack_require__(23);
+	module.exports = __webpack_require__(1);
 
 
 /***/ },
-
-/***/ 23:
+/* 1 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
 	
-	__webpack_require__(24);
+	var $ = __webpack_require__(2);
 	
-	console.log('eeee');
+	// var LoadingLegos = require("./loading-legos");
 	
-	var $ = __webpack_require__(37);
-	
-	$(document).ready(function () {});
+	$(document).ready(function () {
+	  // LoadingLegos.init();
+	});
 
 /***/ },
-
-/***/ 24:
-/***/ function(module, exports) {
-
-	// removed by extract-text-webpack-plugin
-
-/***/ },
-
-/***/ 37:
+/* 2 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;/*!
@@ -10298,6 +10288,5 @@
 
 
 /***/ }
-
-/******/ });
+/******/ ]);
 //# sourceMappingURL=app.bundle.js.map

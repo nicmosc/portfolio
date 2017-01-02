@@ -1,9 +1,7 @@
-import "styles/main";
-
-console.log('eeee');
-
 var $ = require("jquery");
 
-$(document).ready(function() {
+// var LoadingLegos = require("./loading-legos");
 
+$(document).ready(function() {
+  // LoadingLegos.init();
 });

@@ -7,7 +7,7 @@
     "clean": "rm -rf ./docs/bundle/",
     "test": "echo \"Error: no test specified\" && exit 1",
     "dev": "nodemon -e html src/app.js --ignore docs/bundle/ || true",
-    "start": "npm run clean && node src/app.js",
+    "start": "node src/app.js",
     "webpack": "webpack --progress"
   },
   "keywords": [],

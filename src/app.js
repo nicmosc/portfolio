@@ -17,7 +17,7 @@ const browserSync = BrowserSync.create('portfolio');
 
 browserSync.init({
   logSnippet: false,
-  notify: false,
+  notify: true,
   port: 3001,
   logLevel: 'info',
 });
