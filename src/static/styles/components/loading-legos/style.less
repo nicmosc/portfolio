@@ -1,0 +1,29 @@
+@import './colors';
+@import './brick';
+@import './animations';
+
+
+@anim-length-scale: 2s;
+@falling-length-scale: 2.5s;
+
+@scale: 0.7;
+
+.LegoContainer {
+  position: absolute;
+  z-index: 99999;
+  background: @white;
+	top: 0;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  overflow: hidden;
+
+	display: flex;
+	justify-content: center;
+	align-items: center;
+
+  &__content {
+    display: flex;
+  	transform: translate3d(-31px,-100vh, 0) scale(@scale);
+  }
+}

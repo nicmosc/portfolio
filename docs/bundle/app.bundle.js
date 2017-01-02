@@ -40,29 +40,41 @@
 /******/ 	return __webpack_require__(0);
 /******/ })
 /************************************************************************/
-/******/ ([
-/* 0 */
+/******/ ({
+
+/***/ 0:
 /***/ function(module, exports, __webpack_require__) {
 
-	module.exports = __webpack_require__(1);
+	module.exports = __webpack_require__(27);
 
 
 /***/ },
-/* 1 */
+
+/***/ 27:
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
 	
-	var $ = __webpack_require__(2);
+	__webpack_require__(28);
 	
-	// var LoadingLegos = require("./loading-legos");
+	var $ = __webpack_require__(41);
+	
+	var LoadingLegos = __webpack_require__(42);
 	
 	$(document).ready(function () {
-	  // LoadingLegos.init();
+	  LoadingLegos.init();
 	});
 
 /***/ },
-/* 2 */
+
+/***/ 28:
+/***/ function(module, exports) {
+
+	// removed by extract-text-webpack-plugin
+
+/***/ },
+
+/***/ 41:
 /***/ function(module, exports, __webpack_require__) {
 
 	var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;/*!
@@ -10287,6 +10299,50 @@
 	} );
 
 
+/***/ },
+
+/***/ 42:
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+	
+	var jQuery = __webpack_require__(41);
+	
+	module.exports = function ($) {
+	
+	  var loadingContainer;
+	  var lastBrick;
+	
+	  function init() {
+	    loadingContainer = $('.LegoContainer');
+	    lastBrick = $('.top-front');
+	
+	    console.log(loadingContainer, lastBrick);
+	    _attachEvents();
+	  }
+	
+	  function _attachEvents() {
+	    _hideOnEndLoading();
+	  }
+	
+	  function _hideOnEndLoading() {
+	
+	    lastBrick.one('webkitAnimationEnd oanimationend msAnimationEnd animationend', function (e) {
+	      console.log('animation finished');
+	      loadingContainer.fadeOut('slow');
+	    });
+	  }
+	
+	  return {
+	    init: init
+	  };
+	}(jQuery);
+	
+	// module.exports = {
+	//   LoadingLegos: LoadingLegos
+	// }
+
 /***/ }
-/******/ ]);
+
+/******/ });
 //# sourceMappingURL=app.bundle.js.map

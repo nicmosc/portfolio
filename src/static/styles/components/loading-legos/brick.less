@@ -1,0 +1,144 @@
+.Brick {
+	width: 89px;
+	position: absolute;
+	transition: all 1s;
+
+	// BOTTOM ROW
+
+	&--bottom-back {
+		.move-down-keyframes;
+		.animation-move-down(1s, 0s);
+	}
+
+	&--bottom-right {
+    margin-left: 44px;
+    margin-top: 19px;
+
+    .move-down-keyframes;
+		.animation-move-down(1s, 0.1 * @anim-length-scale);
+	}
+
+	&--bottom-front {
+		margin-top: 38px;
+		z-index: 1;
+
+		.move-down-keyframes;
+		.animation-move-down(1s, 0.25 * @anim-length-scale);
+	}
+
+	&--bottom-left {
+		margin-top: 19px;
+		margin-left: -44px;
+
+		.move-down-keyframes;
+		.animation-move-down(1s, 0.3 * @anim-length-scale);
+	}
+
+	// MIDDLE ROW
+
+	&--middle-back {
+		margin-top: -46px;
+
+		.move-down-keyframes;
+		.animation-move-down(1s, 0.4 * @anim-length-scale);
+	}
+
+	&--middle-right {
+		margin-top: -27px;
+		margin-left: 44px;
+
+		.move-down-keyframes;
+		.animation-move-down(1s, 0.6 * @anim-length-scale);
+	}
+
+	&--middle-front {
+		z-index: 2;
+		margin-top: -8px;
+
+		.move-down-keyframes;
+		.animation-move-down(1s, 0.5 * @anim-length-scale);
+		
+	}
+
+	&--middle-left {
+    margin-left: -44px;
+    margin-top: -27px;
+
+    .move-down-keyframes;
+		.animation-move-down(1s, 0.7 * @anim-length-scale);
+	}
+
+	// TOP ROW
+
+	&--top-back {
+    margin-top: -92px;
+
+    .move-down-keyframes;
+		.animation-move-down(1s, 0.8 * @anim-length-scale);
+	}
+
+	&--top-right {
+		margin-top: -73px;
+    margin-left: 44px;
+
+		.move-down-keyframes;
+		.animation-move-down(1s, 0.87 * @anim-length-scale);
+	}
+
+	&--top-front {
+		z-index: 3;
+    margin-top: -54px;
+
+    .move-down-keyframes;
+		.animation-move-down(1s, 1.0 * @anim-length-scale);
+	}
+
+	&--top-left {
+		margin-top: -73px;
+    margin-left: -44px;
+
+    .move-down-keyframes;
+    .animation-move-down(1s, 0.96 * @anim-length-scale);
+	}
+
+	// COLORS
+
+	&--yellow {
+		.light {
+			fill: @yellow
+		}
+		.dark {
+			fill: darken(@yellow, 10%);
+		}
+	}
+
+	&--red {
+		.light {
+			fill: @red;
+		}
+
+		.dark {
+			fill: darken(@red, 10%);
+		}
+	}
+
+	&--blue {
+		.light {
+			fill: @blue;
+		}
+
+		.dark {
+			fill: darken(@blue, 10%);
+		}
+	}
+
+	&--green {
+		.light {
+			fill: @green;
+		}
+
+		.dark {
+			fill: darken(@green, 10%);
+		}
+	}
+}
