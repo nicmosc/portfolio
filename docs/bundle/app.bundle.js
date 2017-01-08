@@ -65,8 +65,6 @@
 	
 	var $ = __webpack_require__(42);
 	
-	// var LoadingLegos = require("./loading-legos");
-	
 	$(document).ready(function () {
 	  _loadingLegos2.default.init();
 	});
@@ -85,7 +83,11 @@
 
 	'use strict';
 	
-	var jQuery = __webpack_require__(42);
+	var _jquery = __webpack_require__(42);
+	
+	var _jquery2 = _interopRequireDefault(_jquery);
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
 	module.exports = function ($) {
 	
@@ -115,11 +117,7 @@
 	  return {
 	    init: init
 	  };
-	}(jQuery);
-	
-	// module.exports = {
-	//   LoadingLegos: LoadingLegos
-	// }
+	}(_jquery2.default); // var jQuery = require('jquery');
 
 /***/ },
 

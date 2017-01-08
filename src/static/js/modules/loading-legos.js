@@ -1,4 +1,5 @@
-var jQuery = require('jquery');
+// var jQuery = require('jquery');
+import jQuery from 'jquery';
 
 module.exports = (function($) {
 
@@ -31,7 +32,3 @@ module.exports = (function($) {
   }
 
 })(jQuery);
-
-// module.exports = {
-//   LoadingLegos: LoadingLegos
-// }
