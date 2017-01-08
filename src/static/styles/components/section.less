@@ -1,9 +1,9 @@
 .Section {
-  height: 400px;
 
   &__descriptionContainer {
     position: relative;
     display: flex;
+    margin-bottom: 30px;
   }
 
   &__titleContainer {
@@ -27,8 +27,9 @@
 
   &__subtitle {
     padding-left: 40px;
-    font-size: 1.2em;
-    width: 300px;
+    font-size: 1.4em;
+    // width: 300px;
+    max-width: 400px;
     color: @gray;
   }
 
@@ -42,5 +43,9 @@
 
   &--inverse {
     background: @lighter-gray;
+  }
+
+  &--with-top-margin {
+    margin-top: 150px;
   }
 }

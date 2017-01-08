@@ -45,33 +45,33 @@
 /***/ 0:
 /***/ function(module, exports, __webpack_require__) {
 
-	module.exports = __webpack_require__(29);
+	module.exports = __webpack_require__(30);
 
 
 /***/ },
 
-/***/ 29:
+/***/ 30:
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
 	
-	__webpack_require__(30);
+	__webpack_require__(31);
 	
-	var _loadingLegos = __webpack_require__(43);
+	var _loadingLegos = __webpack_require__(44);
 	
 	var _loadingLegos2 = _interopRequireDefault(_loadingLegos);
 	
-	var _header = __webpack_require__(45);
+	var _header = __webpack_require__(46);
 	
 	var _header2 = _interopRequireDefault(_header);
 	
-	var _squareSelectors = __webpack_require__(46);
+	var _squareSelectors = __webpack_require__(47);
 	
 	var _squareSelectors2 = _interopRequireDefault(_squareSelectors);
 	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
-	var $ = __webpack_require__(44);
+	var $ = __webpack_require__(45);
 	
 	$(document).ready(function () {
 	  _loadingLegos2.default.init();
@@ -81,19 +81,19 @@
 
 /***/ },
 
-/***/ 30:
+/***/ 31:
 /***/ function(module, exports) {
 
 	// removed by extract-text-webpack-plugin
 
 /***/ },
 
-/***/ 43:
+/***/ 44:
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 	
-	var _jquery = __webpack_require__(44);
+	var _jquery = __webpack_require__(45);
 	
 	var _jquery2 = _interopRequireDefault(_jquery);
 	
@@ -139,7 +139,7 @@
 
 /***/ },
 
-/***/ 44:
+/***/ 45:
 /***/ function(module, exports, __webpack_require__) {
 
 	var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;/*!
@@ -10366,12 +10366,12 @@
 
 /***/ },
 
-/***/ 45:
+/***/ 46:
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 	
-	var _jquery = __webpack_require__(44);
+	var _jquery = __webpack_require__(45);
 	
 	var _jquery2 = _interopRequireDefault(_jquery);
 	
@@ -10407,12 +10407,12 @@
 
 /***/ },
 
-/***/ 46:
+/***/ 47:
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 	
-	var _jquery = __webpack_require__(44);
+	var _jquery = __webpack_require__(45);
 	
 	var _jquery2 = _interopRequireDefault(_jquery);
 	
