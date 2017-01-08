@@ -1,3 +1,9 @@
+@initial-scale: 1.3;
+@hover-scale: 1.4;
+@active-rotation: 20deg;
+@final-rotation: -90deg;
+@final-active-rotation: @final-rotation - @active-rotation;
+
 .Header {
   padding: @base-padding;
   display: flex;
@@ -13,26 +19,42 @@
     justify-content: flex-start;
     flex-direction: row;
 
-    transition: transform @short-base-timing ease;
+    transition: transform @short-base-timing 0.2s ease;
 
     &--hidden {
-      transform: translate3d(0, -100px, 0);
+      transform: translate3d(-150%, 0, 0);
     }
   }
 
   &__logoContainer {
     width: 40px;
     height: 32px;
-    transform: scale(1.3);
+    transform: scale(@initial-scale);
     transition: transform @shorter-base-timing;
     polygon {
-      // transition: fill @shorter-base-timing;
       fill: @red;
     }
 
     &:hover {
       cursor: pointer;
-      transform: scale(1.4);
+      transform: scale(@hover-scale);
+    }
+
+    &:active {
+      transform: scale(@initial-scale) rotate(@active-rotation);
+    }
+
+    &--active {
+      transform: scale(@initial-scale) rotate(@final-rotation);
+
+      &:hover {
+        cursor: pointer;
+        transform: scale(@hover-scale) rotate(@final-rotation);
+      }
+
+      &:active {
+        transform: scale(@initial-scale) rotate(@final-active-rotation);
+      }
     }
   }
 }
