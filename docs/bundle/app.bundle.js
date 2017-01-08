@@ -57,12 +57,18 @@
 	
 	__webpack_require__(28);
 	
-	var $ = __webpack_require__(41);
+	var _loadingLegos = __webpack_require__(41);
 	
-	var LoadingLegos = __webpack_require__(42);
+	var _loadingLegos2 = _interopRequireDefault(_loadingLegos);
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+	
+	var $ = __webpack_require__(42);
+	
+	// var LoadingLegos = require("./loading-legos");
 	
 	$(document).ready(function () {
-	  LoadingLegos.init();
+	  _loadingLegos2.default.init();
 	});
 
 /***/ },
@@ -75,6 +81,49 @@
 /***/ },
 
 /***/ 41:
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+	
+	var jQuery = __webpack_require__(42);
+	
+	module.exports = function ($) {
+	
+	  var loadingContainer;
+	  var lastBrick;
+	
+	  function init() {
+	    loadingContainer = $('.LegoContainer');
+	    lastBrick = $('.top-front');
+	
+	    console.log(loadingContainer, lastBrick);
+	    _attachEvents();
+	  }
+	
+	  function _attachEvents() {
+	    _hideOnEndLoading();
+	  }
+	
+	  function _hideOnEndLoading() {
+	
+	    lastBrick.one('webkitAnimationEnd oanimationend msAnimationEnd animationend', function (e) {
+	      console.log('animation finished');
+	      loadingContainer.fadeOut('slow');
+	    });
+	  }
+	
+	  return {
+	    init: init
+	  };
+	}(jQuery);
+	
+	// module.exports = {
+	//   LoadingLegos: LoadingLegos
+	// }
+
+/***/ },
+
+/***/ 42:
 /***/ function(module, exports, __webpack_require__) {
 
 	var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;/*!
@@ -10298,49 +10347,6 @@
 	return jQuery;
 	} );
 
-
-/***/ },
-
-/***/ 42:
-/***/ function(module, exports, __webpack_require__) {
-
-	'use strict';
-	
-	var jQuery = __webpack_require__(41);
-	
-	module.exports = function ($) {
-	
-	  var loadingContainer;
-	  var lastBrick;
-	
-	  function init() {
-	    loadingContainer = $('.LegoContainer');
-	    lastBrick = $('.top-front');
-	
-	    console.log(loadingContainer, lastBrick);
-	    _attachEvents();
-	  }
-	
-	  function _attachEvents() {
-	    _hideOnEndLoading();
-	  }
-	
-	  function _hideOnEndLoading() {
-	
-	    lastBrick.one('webkitAnimationEnd oanimationend msAnimationEnd animationend', function (e) {
-	      console.log('animation finished');
-	      loadingContainer.fadeOut('slow');
-	    });
-	  }
-	
-	  return {
-	    init: init
-	  };
-	}(jQuery);
-	
-	// module.exports = {
-	//   LoadingLegos: LoadingLegos
-	// }
 
 /***/ }
 
