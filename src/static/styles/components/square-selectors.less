@@ -1,0 +1,27 @@
+.SquareSelectors {
+
+  display: flex;
+
+  &__square {
+    flex: 1;
+    display: flex;
+    align-items: center;
+
+    &--red {
+      background: @red;
+    }
+
+    &--blue {
+      background: @blue;
+    }
+
+    &--orange {
+      background: @orange;
+    }
+  }
+
+  &__squareText {
+    width: 100%;
+    text-align: center;
+  }
+}

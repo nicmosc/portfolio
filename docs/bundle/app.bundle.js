@@ -45,50 +45,55 @@
 /***/ 0:
 /***/ function(module, exports, __webpack_require__) {
 
-	module.exports = __webpack_require__(28);
+	module.exports = __webpack_require__(29);
 
-
-/***/ },
-
-/***/ 28:
-/***/ function(module, exports, __webpack_require__) {
-
-	"use strict";
-	
-	__webpack_require__(29);
-	
-	var _loadingLegos = __webpack_require__(42);
-	
-	var _loadingLegos2 = _interopRequireDefault(_loadingLegos);
-	
-	var _header = __webpack_require__(44);
-	
-	var _header2 = _interopRequireDefault(_header);
-	
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-	
-	var $ = __webpack_require__(43);
-	
-	$(document).ready(function () {
-	  _loadingLegos2.default.init();
-	  _header2.default.init();
-	});
 
 /***/ },
 
 /***/ 29:
+/***/ function(module, exports, __webpack_require__) {
+
+	"use strict";
+	
+	__webpack_require__(30);
+	
+	var _loadingLegos = __webpack_require__(43);
+	
+	var _loadingLegos2 = _interopRequireDefault(_loadingLegos);
+	
+	var _header = __webpack_require__(45);
+	
+	var _header2 = _interopRequireDefault(_header);
+	
+	var _squareSelectors = __webpack_require__(46);
+	
+	var _squareSelectors2 = _interopRequireDefault(_squareSelectors);
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+	
+	var $ = __webpack_require__(44);
+	
+	$(document).ready(function () {
+	  _loadingLegos2.default.init();
+	  _header2.default.init();
+	  _squareSelectors2.default.init();
+	});
+
+/***/ },
+
+/***/ 30:
 /***/ function(module, exports) {
 
 	// removed by extract-text-webpack-plugin
 
 /***/ },
 
-/***/ 42:
+/***/ 43:
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 	
-	var _jquery = __webpack_require__(43);
+	var _jquery = __webpack_require__(44);
 	
 	var _jquery2 = _interopRequireDefault(_jquery);
 	
@@ -134,7 +139,7 @@
 
 /***/ },
 
-/***/ 43:
+/***/ 44:
 /***/ function(module, exports, __webpack_require__) {
 
 	var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;/*!
@@ -10361,12 +10366,12 @@
 
 /***/ },
 
-/***/ 44:
+/***/ 45:
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 	
-	var _jquery = __webpack_require__(43);
+	var _jquery = __webpack_require__(44);
 	
 	var _jquery2 = _interopRequireDefault(_jquery);
 	
@@ -10394,6 +10399,42 @@
 	    buttons.toggleClass('Header__menuContainer--hidden');
 	    logo.toggleClass('Header__logoContainer--active');
 	  }
+	
+	  return {
+	    init: init
+	  };
+	}(_jquery2.default);
+
+/***/ },
+
+/***/ 46:
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+	
+	var _jquery = __webpack_require__(44);
+	
+	var _jquery2 = _interopRequireDefault(_jquery);
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+	
+	module.exports = function ($) {
+	
+	  var squares;
+	
+	  function init() {
+	    squares = $('.SquareSelectors__square');
+	
+	    _setHeight();
+	    _attachEvents();
+	  }
+	
+	  function _setHeight() {
+	    var width = squares.width();
+	    squares.height(width);
+	  }
+	
+	  function _attachEvents() {}
 	
 	  return {
 	    init: init
