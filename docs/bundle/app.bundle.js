@@ -10397,6 +10397,7 @@
 	
 	  function _handleLogoClicked() {
 	    buttons.toggleClass('Header__menuContainer--hidden');
+	    header.toggleClass('Header--hidden');
 	    logo.toggleClass('Header__logoContainer--active');
 	  }
 	
