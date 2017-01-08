@@ -1,0 +1,42 @@
+.Section {
+  height: 400px;
+
+  &__descriptionContainer {
+    position: relative;
+    display: flex;
+  }
+
+  &__titleContainer {
+    flex: 1;
+
+  }
+
+  &__subtitleContainer {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  &__title {
+    font-family: 'square-deal';
+    color: @light-gray;
+
+    font-size: 20vw;
+  }
+
+  &__subtitle {
+    padding-left: 40px;
+    font-size: 1.2em;
+    width: 300px;
+    color: @gray;
+  }
+
+  &__content {
+    padding: @base-padding;
+  }
+
+  &--inverse {
+    background: @lighter-gray;
+  }
+}

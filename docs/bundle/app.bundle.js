@@ -45,29 +45,29 @@
 /***/ 0:
 /***/ function(module, exports, __webpack_require__) {
 
-	module.exports = __webpack_require__(27);
+	module.exports = __webpack_require__(28);
 
 
 /***/ },
 
-/***/ 27:
+/***/ 28:
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
 	
-	__webpack_require__(28);
+	__webpack_require__(29);
 	
-	var _loadingLegos = __webpack_require__(41);
+	var _loadingLegos = __webpack_require__(42);
 	
 	var _loadingLegos2 = _interopRequireDefault(_loadingLegos);
 	
-	var _header = __webpack_require__(43);
+	var _header = __webpack_require__(44);
 	
 	var _header2 = _interopRequireDefault(_header);
 	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
-	var $ = __webpack_require__(42);
+	var $ = __webpack_require__(43);
 	
 	$(document).ready(function () {
 	  _loadingLegos2.default.init();
@@ -76,19 +76,19 @@
 
 /***/ },
 
-/***/ 28:
+/***/ 29:
 /***/ function(module, exports) {
 
 	// removed by extract-text-webpack-plugin
 
 /***/ },
 
-/***/ 41:
+/***/ 42:
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 	
-	var _jquery = __webpack_require__(42);
+	var _jquery = __webpack_require__(43);
 	
 	var _jquery2 = _interopRequireDefault(_jquery);
 	
@@ -134,7 +134,7 @@
 
 /***/ },
 
-/***/ 42:
+/***/ 43:
 /***/ function(module, exports, __webpack_require__) {
 
 	var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;/*!
@@ -10361,12 +10361,12 @@
 
 /***/ },
 
-/***/ 43:
+/***/ 44:
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 	
-	var _jquery = __webpack_require__(42);
+	var _jquery = __webpack_require__(43);
 	
 	var _jquery2 = _interopRequireDefault(_jquery);
 	
