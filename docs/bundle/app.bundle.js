@@ -61,12 +61,17 @@
 	
 	var _loadingLegos2 = _interopRequireDefault(_loadingLegos);
 	
+	var _header = __webpack_require__(43);
+	
+	var _header2 = _interopRequireDefault(_header);
+	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
 	var $ = __webpack_require__(42);
 	
 	$(document).ready(function () {
 	  _loadingLegos2.default.init();
+	  _header2.default.init();
 	});
 
 /***/ },
@@ -10353,6 +10358,46 @@
 	return jQuery;
 	} );
 
+
+/***/ },
+
+/***/ 43:
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+	
+	var _jquery = __webpack_require__(42);
+	
+	var _jquery2 = _interopRequireDefault(_jquery);
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+	
+	module.exports = function ($) {
+	
+	  var header;
+	  var buttons;
+	  var logo;
+	
+	  function init() {
+	    header = $('.Header');
+	    logo = $('.Header__logoContainer');
+	    buttons = $('.Header__menuContainer');
+	
+	    _attachEvents();
+	  }
+	
+	  function _attachEvents() {
+	    logo.click(_handleLogoClicked);
+	  }
+	
+	  function _handleLogoClicked() {
+	    buttons.toggleClass('Header__menuContainer--hidden');
+	  }
+	
+	  return {
+	    init: init
+	  };
+	}(_jquery2.default);
 
 /***/ }
 

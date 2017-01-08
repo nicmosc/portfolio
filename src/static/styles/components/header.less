@@ -12,14 +12,27 @@
     display: flex;
     justify-content: flex-start;
     flex-direction: row;
+
+    transition: transform @short-base-timing ease;
+
+    &--hidden {
+      transform: translate3d(0, -100px, 0);
+    }
   }
 
   &__logoContainer {
     width: 40px;
     height: 32px;
     transform: scale(1.3);
+    transition: transform @shorter-base-timing;
     polygon {
+      // transition: fill @shorter-base-timing;
       fill: @red;
+    }
+
+    &:hover {
+      cursor: pointer;
+      transform: scale(1.4);
     }
   }
 }
