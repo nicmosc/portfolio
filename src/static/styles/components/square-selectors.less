@@ -7,6 +7,14 @@
     display: flex;
     align-items: center;
 
+    transition: transform @shorter-base-timing ease-out;
+
+    &:hover {
+      cursor: pointer;
+      transform: scale(1.1);
+      transition: transform @longer-base-timing ease-out;
+    }
+
     &--red {
       background: @red;
     }

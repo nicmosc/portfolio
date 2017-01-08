@@ -3,9 +3,11 @@ import jQuery from 'jquery';
 module.exports = (function($) {
 
   var squares;
+  var $window;
 
   function init() {
     squares = $('.SquareSelectors__square');
+    $window = $(window);
 
     _setHeight();
     _attachEvents();
@@ -17,6 +19,11 @@ module.exports = (function($) {
   }
 
   function _attachEvents() {
+    $window.resize(_handleWindowResize);
+  }
+
+  function _handleWindowResize() {
+    _setHeight();
   }
 
   return {
