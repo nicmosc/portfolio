@@ -8,6 +8,50 @@ var rollOverMesh, rollOverMaterial;
 var cubeGeo, cubeMaterial;
 var objects = [];
 
+var obj404 = {
+  four: {
+    pos: [
+      {x: -125, y: 25, z: 125},
+      {x: -125, y: 75, z: 125},
+      {x: -125, y: 125, z: 125},
+      {x: -125, y: 175, z: 125},
+      {x: -125, y: 225, z: 125},
+      {x: -125, y: 125, z: 175},
+      {x: -125, y: 125, z: 225},
+      {x: -125, y: 175, z: 225},
+      {x: -125, y: 225, z: 225},
+    ],
+    firstPositionMod: {
+      x: 100,
+      z: 50,
+    },
+    secondPositionMod: {
+      x: 350,
+      z: -200,
+    }
+  },
+  zero: {
+    pos: [
+      {x: 75, y: 25, z: 25},
+      {x: 75, y: 25, z: 75},
+      {x: 75, y: 25, z: 125},
+      {x: 75, y: 75, z: 25},
+      {x: 75, y: 125, z: 25},
+      {x: 75, y: 175, z: 25},
+      {x: 75, y: 225, z: 25},
+      {x: 75, y: 75, z: 125},
+      {x: 75, y: 125, z: 125},
+      {x: 75, y: 175, z: 125},
+      {x: 75, y: 225, z: 75},
+      {x: 75, y: 225, z: 125},
+    ],
+    positionMod: {
+      x: 1,
+      z: 1,
+    }
+  }
+}
+
 init();
 render();
 function init() {
@@ -72,7 +116,7 @@ function init() {
 
   var material = new THREE.LineBasicMaterial( { color: 0x000000, opacity: 0.2, transparent: true } );
   var line = new THREE.LineSegments( geometry, material );
-  // scene.add( line );
+  scene.add( line );
 
 
   raycaster = new THREE.Raycaster();
@@ -86,6 +130,7 @@ function init() {
   scene.add( plane );
   objects.push( plane );
 
+  create404();
 
   document.addEventListener( 'mousemove', onDocumentMouseMove, false );
   document.addEventListener( 'mousedown', onDocumentMouseDown, false );
@@ -99,6 +144,18 @@ function onWindowResize() {
   camera.aspect = window.innerWidth / window.innerHeight;
   camera.updateProjectionMatrix();
   renderer.setSize( window.innerWidth, window.innerHeight );
+}
+
+function create404() {
+  // first create the first 4
+  for (var i = 0; i < obj404.four.pos.length; i++){
+    createCube(null, {pos: obj404.four.pos[i], mod: obj404.four.firstPositionMod});
+    createCube(null, {pos: obj404.four.pos[i], mod: obj404.four.secondPositionMod});
+  }
+
+  for (var i = 0; i < obj404.zero.pos.length; i++) {
+    createCube(null, {pos: obj404.zero.pos[i], mod: obj404.zero.positionMod});
+  }
 }
 
 function onDocumentMouseMove( event ) {
@@ -123,19 +180,35 @@ function onDocumentMouseDown( event ) {
     var intersect = intersects[ 0 ];
     // delete cube
     if ( isShiftDown ) {
-      if ( intersect.object != plane ) {
-        scene.remove( intersect.object );
-        objects.splice( objects.indexOf( intersect.object ), 1 );
-      }
+      deleteCube(intersect);
     // create cube
     } else {
-      var voxel = new THREE.Mesh( cubeGeo, cubeMaterial );
-      voxel.position.copy( intersect.point ).add( intersect.face.normal );
-      voxel.position.divideScalar( 50 ).floor().multiplyScalar( 50 ).addScalar( 25 );
-      scene.add( voxel );
-      objects.push( voxel );
+      createCube(intersect);
     }
     render();
+  }
+}
+
+function createCube(intersect, posAttributes = null) {
+  var voxel = new THREE.Mesh( cubeGeo, cubeMaterial );
+  if (posAttributes) {
+    voxel.position.x = posAttributes.pos.x + posAttributes.mod.x;
+    voxel.position.y = posAttributes.pos.y;
+    voxel.position.z = posAttributes.pos.z + posAttributes.mod.z;
+  }
+  else {
+    voxel.position.copy( intersect.point ).add( intersect.face.normal );
+    voxel.position.divideScalar( 50 ).floor().multiplyScalar( 50 ).addScalar( 25 );
+    console.log(voxel.position);
+  }
+  scene.add( voxel );
+  objects.push( voxel );
+}
+
+function deleteCube(intersect) {
+  if ( intersect.object != plane ) {
+    scene.remove( intersect.object );
+    objects.splice( objects.indexOf( intersect.object ), 1 );
   }
 }
 
