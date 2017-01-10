@@ -66,9 +66,27 @@ function init() {
   var ambientLight = new THREE.AmbientLight( 0x606060 );
   scene.add( ambientLight );
 
-  var directionalLight = new THREE.DirectionalLight( 0xffffff );
-  directionalLight.position.set( 1, 0.75, 0.5 ).normalize();
-  scene.add( directionalLight );
+  // var directionalLight = new THREE.DirectionalLight( 0xffffff );
+  // directionalLight.position.set( 1, 0.75, 0.5 ).normalize();
+  // console.log(directionalLight.position);
+  // scene.add( directionalLight );
+
+  var light = new THREE.SpotLight( 0xffffff, 1.2 );
+  light.position.set( 1000, 1500, 500 );
+  light.castShadow = true;
+  light.shadow = new THREE.LightShadow( new THREE.OrthographicCamera( window.innerWidth / - 2, window.innerWidth / 2, window.innerHeight / 2, window.innerHeight / - 2, 1, 10000 ) );
+  light.shadow.bias = - 0.00022;
+  light.shadow.mapSize.width = 2048;
+  light.shadow.mapSize.height = 2048;
+  scene.add( light );
+
+
+  // CAMERA
+  // camera = new THREE.PerspectiveCamera( 45, window.innerWidth / window.innerHeight, 1, 10000 );
+  camera = new THREE.OrthographicCamera( window.innerWidth / - 2, window.innerWidth / 2, window.innerHeight / 2, window.innerHeight / - 2, 1, 10000 );
+  // camera.position.set( 500, 800, 1300 );
+  camera.position.set(500,500,500);
+  camera.lookAt( new THREE.Vector3() );
 
 
   // RENDERER
@@ -81,13 +99,9 @@ function init() {
   renderer.gammaInput = true;
   renderer.gammaOutput = true;
 
-
-  // CAMERA
-  // camera = new THREE.PerspectiveCamera( 45, window.innerWidth / window.innerHeight, 1, 10000 );
-  camera = new THREE.OrthographicCamera( window.innerWidth / - 2, window.innerWidth / 2, window.innerHeight / 2, window.innerHeight / - 2, 1, 10000 );
-  // camera.position.set( 500, 800, 1300 );
-  camera.position.set(500,500,500);
-  camera.lookAt( new THREE.Vector3() );
+  renderer.shadowMapEnabled = true;
+  renderer.shadowMapSoft = true;
+  renderer.shadowMap.type = THREE.PCFShadowMap;
 
 
   // ROLL-OVER CUBE
@@ -99,8 +113,7 @@ function init() {
 
   // CUBE
   cubeGeo = new THREE.BoxGeometry( 50, 50, 50 );
-  cubeMaterial = new THREE.MeshLambertMaterial( { color: 0xfeb74c,transparent: true, opacity: 0.5} );
-
+  cubeMaterial = new THREE.MeshLambertMaterial( { color: 0xfeb74c});
 
 
   // GRID
@@ -116,21 +129,28 @@ function init() {
 
   var material = new THREE.LineBasicMaterial( { color: 0x000000, opacity: 0.2, transparent: true } );
   var line = new THREE.LineSegments( geometry, material );
-  scene.add( line );
+  // scene.add( line );
 
 
   raycaster = new THREE.Raycaster();
 
   mouse = new THREE.Vector2();
 
-  var geometry = new THREE.PlaneBufferGeometry( 2000, 2000 );
+  var geometry = new THREE.PlaneBufferGeometry( 1000, 1000 );
   geometry.rotateX( - Math.PI / 2 );
-  plane = new THREE.Mesh( geometry, new THREE.MeshBasicMaterial( { visible: false } ) );
+  plane = new THREE.Mesh( geometry, new THREE.MeshLambertMaterial( { visible: true } ) );
 
   scene.add( plane );
   objects.push( plane );
 
   create404();
+
+  // directionalLight.castShadow = true;
+  // var helper = new THREE.CameraHelper( directionalLight.shadow.camera );
+  // scene.add(helper);
+
+  // cube.castShadow = true;
+  plane.receiveShadow = true;
 
   document.addEventListener( 'mousemove', onDocumentMouseMove, false );
   document.addEventListener( 'mousedown', onDocumentMouseDown, false );
@@ -201,6 +221,8 @@ function createCube(intersect, posAttributes = null) {
     voxel.position.divideScalar( 50 ).floor().multiplyScalar( 50 ).addScalar( 25 );
     console.log(voxel.position);
   }
+  voxel.castShadow = true;
+  voxel.receiveShadow = true;
   scene.add( voxel );
   objects.push( voxel );
 }
