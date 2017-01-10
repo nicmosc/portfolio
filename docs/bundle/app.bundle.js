@@ -10412,7 +10412,7 @@
 	    var target = $('#' + targetId);
 	    $('html,body').animate({
 	      scrollTop: target.offset().top - header.outerHeight()
-	    }, 1000);
+	    }, 300);
 	    return false;
 	  }
 	

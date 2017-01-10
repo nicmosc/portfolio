@@ -13,8 +13,6 @@
   top: 0;
   right: 0;
   z-index: 9999;
-  background: rgba(255, 255, 255, 1);
-  transition: background @shorter-base-timing;
 
   &__menuContainer {
     padding: @base-padding + 5px;
@@ -80,9 +78,5 @@
         transform: scale(@initial-scale) rotate(@final-active-rotation);
       }
     }
-  }
-
-  &--hidden {
-    background: rgba(255, 255, 255, 0);
   }
 }
