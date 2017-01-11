@@ -52,7 +52,7 @@ var obj404 = {
   }
 }
 
-var colors = ['0xDB4437', '0x0F9D58', '0x4285F4', '0xFCEE21'];
+var colors = ['0xb9140a', '0x1e6914', '0x1a3fcc', '0xd49417'];
 
 init();
 animate();
@@ -64,11 +64,11 @@ function init() {
   scene = new THREE.Scene();
 
 
-  // LIGHTS
+  // // LIGHTS
   var ambientLight = new THREE.AmbientLight( 0x606060 );
   scene.add( ambientLight );
 
-  var light = new THREE.SpotLight( 0xffffff, 1.2 );
+  var light = new THREE.SpotLight( 0xffffff, 2 );
   light.position.set( 1000, 1500, 500 );
   light.castShadow = true;
   light.shadow = new THREE.LightShadow( new THREE.OrthographicCamera( window.innerWidth / - 2, window.innerWidth / 2, window.innerHeight / 2, window.innerHeight / - 2, 1, 10000 ) );
@@ -78,15 +78,9 @@ function init() {
   scene.add( light );
 
 
-  // CAMERA
-  camera = new THREE.OrthographicCamera( window.innerWidth / - 2, window.innerWidth / 2, window.innerHeight / 2, window.innerHeight / - 2, 1, 10000 );
-  camera.position.set(500,500,500);
-  camera.lookAt( new THREE.Vector3() );
-
-
   // RENDERER
   renderer = new THREE.WebGLRenderer( { antialias: true } );
-  renderer.setClearColor( 0xf0f0f0 );
+  renderer.setClearColor( 0xffffff );
   renderer.setPixelRatio( window.devicePixelRatio );
   renderer.setSize( window.innerWidth, window.innerHeight );
   container.appendChild( renderer.domElement );
@@ -97,6 +91,12 @@ function init() {
   renderer.shadowMapEnabled = true;
   renderer.shadowMapSoft = true;
   renderer.shadowMap.type = THREE.PCFShadowMap;
+
+
+  // CAMERA
+  camera = new THREE.OrthographicCamera( window.innerWidth / - 2, window.innerWidth / 2, window.innerHeight / 2, window.innerHeight / - 2, 1, 10000 );
+  camera.position.set(600,500,500);
+  camera.lookAt( new THREE.Vector3() );
 
 
   // ROLL-OVER CUBE
@@ -115,9 +115,13 @@ function init() {
 
   mouse = new THREE.Vector2();
 
-  var geometry = new THREE.PlaneBufferGeometry( 2700, 2700 );
+  var geometry = new THREE.PlaneBufferGeometry( 3000, 3000 );
   geometry.rotateX( - Math.PI / 2 );
-  plane = new THREE.Mesh( geometry, new THREE.MeshLambertMaterial( { visible: true } ) );
+
+  var planeMaterial = new THREE.ShadowMaterial();
+  planeMaterial.opacity = 0.2;
+
+  plane = new THREE.Mesh( geometry, planeMaterial );
 
   scene.add( plane );
   objects.push( plane );
@@ -144,12 +148,12 @@ function onWindowResize() {
 function create404() {
   // first create the first 4
   for (var i = 0; i < obj404.four.pos.length; i++){
-    createCube(null, {pos: obj404.four.pos[i], mod: obj404.four.firstPositionMod});
-    createCube(null, {pos: obj404.four.pos[i], mod: obj404.four.secondPositionMod});
+    createCube(null, colors[0], {pos: obj404.four.pos[i], mod: obj404.four.firstPositionMod});
+    createCube(null, colors[1], {pos: obj404.four.pos[i], mod: obj404.four.secondPositionMod});
   }
 
   for (var i = 0; i < obj404.zero.pos.length; i++) {
-    createCube(null, {pos: obj404.zero.pos[i], mod: obj404.zero.positionMod});
+    createCube(null, colors[2], {pos: obj404.zero.pos[i], mod: obj404.zero.positionMod});
   }
 }
 
@@ -178,15 +182,17 @@ function onDocumentMouseDown( event ) {
       deleteCube(intersect);
     // create cube
     } else {
-      createCube(intersect);
+      var randomCol = colors[Math.floor(Math.random()*colors.length)];
+      createCube(intersect, randomCol);
     }
     // render();
   }
 }
 
-function createCube(intersect, posAttributes = null) {
-  // cubeMaterial = new THREE.MeshLambertMaterial( { color: parseInt(colors[Math.floor(Math.random()*colors.length)], 16 ) } );
-  cubeMaterial = new THREE.MeshLambertMaterial( { color: 0x4285F4 } );
+function createCube(intersect, color, posAttributes = null) {
+  cubeMaterial = new THREE.MeshLambertMaterial( { color: parseInt(color, 16 ) } );
+  // cubeMaterial = new THREE.MeshLambertMaterial();
+  // cubeMaterial.color = new THREE.Color("rgb(212, 148, 23)");
 
   var voxel = new THREE.Mesh( cubeGeo, cubeMaterial );
   if (posAttributes) {
