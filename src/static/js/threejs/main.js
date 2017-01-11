@@ -52,8 +52,10 @@ var obj404 = {
   }
 }
 
+var colors = ['0xDB4437', '0x0F9D58', '0x4285F4', '0xFCEE21'];
+
 init();
-render();
+animate();
 function init() {
   container = document.createElement( 'div' );
   document.body.appendChild( container );
@@ -63,6 +65,7 @@ function init() {
 
 
   // LIGHTS
+  // var ambientLight = new THREE.AmbientLight( 0x606060 );
   var ambientLight = new THREE.AmbientLight( 0x606060 );
   scene.add( ambientLight );
 
@@ -112,8 +115,7 @@ function init() {
 
 
   // CUBE
-  cubeGeo = new THREE.BoxGeometry( 50, 50, 50 );
-  cubeMaterial = new THREE.MeshLambertMaterial( { color: 0xfeb74c});
+  cubeGeo = new THREE.BoxGeometry( 50, 50, 50 );  // will need to be altered to create bricks
 
 
   // GRID
@@ -136,7 +138,7 @@ function init() {
 
   mouse = new THREE.Vector2();
 
-  var geometry = new THREE.PlaneBufferGeometry( 1000, 1000 );
+  var geometry = new THREE.PlaneBufferGeometry( 2700, 2700 );
   geometry.rotateX( - Math.PI / 2 );
   plane = new THREE.Mesh( geometry, new THREE.MeshLambertMaterial( { visible: true } ) );
 
@@ -161,7 +163,10 @@ function init() {
 }
 
 function onWindowResize() {
-  camera.aspect = window.innerWidth / window.innerHeight;
+  camera.left = window.innerWidth / - 2;
+  camera.right = window.innerWidth / 2;
+  camera.top = window.innerHeight / 2;
+  camera.bottom = window.innerHeight / - 2;
   camera.updateProjectionMatrix();
   renderer.setSize( window.innerWidth, window.innerHeight );
 }
@@ -188,7 +193,7 @@ function onDocumentMouseMove( event ) {
     rollOverMesh.position.copy( intersect.point ).add( intersect.face.normal );
     rollOverMesh.position.divideScalar( 50 ).floor().multiplyScalar( 50 ).addScalar( 25 );
   }
-  render();
+  // render();
 }
 
 function onDocumentMouseDown( event ) {
@@ -205,11 +210,14 @@ function onDocumentMouseDown( event ) {
     } else {
       createCube(intersect);
     }
-    render();
+    // render();
   }
 }
 
 function createCube(intersect, posAttributes = null) {
+  // cubeMaterial = new THREE.MeshLambertMaterial( { color: parseInt(colors[Math.floor(Math.random()*colors.length)], 16 ) } );
+  cubeMaterial = new THREE.MeshLambertMaterial( { color: 0x4285F4 } );
+
   var voxel = new THREE.Mesh( cubeGeo, cubeMaterial );
   if (posAttributes) {
     voxel.position.x = posAttributes.pos.x + posAttributes.mod.x;
@@ -244,6 +252,12 @@ function onDocumentKeyUp( event ) {
   switch ( event.keyCode ) {
     case 16: isShiftDown = false; break;
   }
+}
+
+function animate() {
+	requestAnimationFrame( animate );
+	render();
+	// stats.update();
 }
 
 function render() {
