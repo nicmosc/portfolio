@@ -65,14 +65,8 @@ function init() {
 
 
   // LIGHTS
-  // var ambientLight = new THREE.AmbientLight( 0x606060 );
   var ambientLight = new THREE.AmbientLight( 0x606060 );
   scene.add( ambientLight );
-
-  // var directionalLight = new THREE.DirectionalLight( 0xffffff );
-  // directionalLight.position.set( 1, 0.75, 0.5 ).normalize();
-  // console.log(directionalLight.position);
-  // scene.add( directionalLight );
 
   var light = new THREE.SpotLight( 0xffffff, 1.2 );
   light.position.set( 1000, 1500, 500 );
@@ -85,9 +79,7 @@ function init() {
 
 
   // CAMERA
-  // camera = new THREE.PerspectiveCamera( 45, window.innerWidth / window.innerHeight, 1, 10000 );
   camera = new THREE.OrthographicCamera( window.innerWidth / - 2, window.innerWidth / 2, window.innerHeight / 2, window.innerHeight / - 2, 1, 10000 );
-  // camera.position.set( 500, 800, 1300 );
   camera.position.set(500,500,500);
   camera.lookAt( new THREE.Vector3() );
 
@@ -117,22 +109,7 @@ function init() {
   // CUBE
   cubeGeo = new THREE.BoxGeometry( 50, 50, 50 );  // will need to be altered to create bricks
 
-
-  // GRID
-  var size = 500, step = 50;
-  var geometry = new THREE.Geometry();
-  for ( var i = - size; i <= size; i += step ) {
-    geometry.vertices.push( new THREE.Vector3( - size, 0, i ) );
-    geometry.vertices.push( new THREE.Vector3(   size, 0, i ) );
-    geometry.vertices.push( new THREE.Vector3( i, 0, - size ) );
-    geometry.vertices.push( new THREE.Vector3( i, 0,   size ) );
-  }
-
-
-  var material = new THREE.LineBasicMaterial( { color: 0x000000, opacity: 0.2, transparent: true } );
-  var line = new THREE.LineSegments( geometry, material );
-  // scene.add( line );
-
+  create404();
 
   raycaster = new THREE.Raycaster();
 
@@ -144,15 +121,8 @@ function init() {
 
   scene.add( plane );
   objects.push( plane );
-
-  create404();
-
-  // directionalLight.castShadow = true;
-  // var helper = new THREE.CameraHelper( directionalLight.shadow.camera );
-  // scene.add(helper);
-
-  // cube.castShadow = true;
   plane.receiveShadow = true;
+
 
   document.addEventListener( 'mousemove', onDocumentMouseMove, false );
   document.addEventListener( 'mousedown', onDocumentMouseDown, false );
