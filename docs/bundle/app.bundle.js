@@ -69,6 +69,10 @@
 	
 	var _squareSelectors2 = _interopRequireDefault(_squareSelectors);
 	
+	var _cover = __webpack_require__(49);
+	
+	var _cover2 = _interopRequireDefault(_cover);
+	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
 	var $ = __webpack_require__(46);
@@ -77,6 +81,7 @@
 	  _loadingLegos2.default.init();
 	  _header2.default.init();
 	  _squareSelectors2.default.init();
+	  _cover2.default.init();
 	});
 
 /***/ },
@@ -10476,6 +10481,39 @@
 	  function _handleWindowResize() {
 	    _setHeight();
 	  }
+	
+	  return {
+	    init: init
+	  };
+	}(_jquery2.default);
+
+/***/ },
+
+/***/ 49:
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+	
+	var _jquery = __webpack_require__(46);
+	
+	var _jquery2 = _interopRequireDefault(_jquery);
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+	
+	module.exports = function ($) {
+	
+	  coverText;
+	  coverEffect;
+	
+	  function init() {
+	
+	    coverText = $('.Cover__text');
+	    coverEffect = coverText.find('.Cover__effect');
+	
+	    _attachEvents();
+	  }
+	
+	  function _attachEvents() {}
 	
 	  return {
 	    init: init

@@ -12,5 +12,39 @@
     text-align: center;
     font-size: 10em;
     font-family: 'square-deal';
+		position: relative;
   }
+
+  &__effect {
+		position: absolute;
+    width: 100%;
+    height: 100%;
+    right: 10px;
+    bottom: 40px;
+    background: @black;
+		transition: all @base-timing;
+
+		animation: unhideText @base-timing;
+		animation-fill-mode: forwards;
+		animation-timing-function: ease;
+		animation-delay: @base-timing;
+
+		&--expand {
+			animation: hideText @base-timing;
+			animation-fill-mode: forwards;
+			animation-timing-function: ease;
+		}
+  }
+}
+
+@keyframes hideText {
+	0%   { width: 20px; height: 20px; }
+	50%  { width: 100%; height: 20px; }
+  100% { height: 100%; width: 100%; }
+}
+
+@keyframes unhideText {
+	0%	 { height: 100%; width: 100%; }
+	50%  { width: 20px; height: 100%; }
+  100% { height: 20px; width: 20px; }
 }
