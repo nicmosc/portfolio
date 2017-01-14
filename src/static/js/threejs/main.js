@@ -104,15 +104,12 @@ function init() {
 
 
   // ROLL-OVER CUBE
-  rollOverGeo = new THREE.BoxGeometry( 50, 50, 50 );
-  rollOverMaterial = new THREE.MeshBasicMaterial( { color: 0xff0000, opacity: 0.5, transparent: true } );
-  rollOverMesh = new THREE.Mesh( rollOverGeo, rollOverMaterial );
+  var rollOverGeo = new THREE.EdgesGeometry( new THREE.BoxGeometry( 50, 50, 50 ) ); // or WireframeGeometry( geometry )
+  var mat = new THREE.LineBasicMaterial( { color: 0x777777, linewidth: 2 } );
+  rollOverMesh = new THREE.LineSegments( rollOverGeo, mat );
   scene.add( rollOverMesh );
 
-
-  // CUBE
-  cubeGeo = new THREE.BoxGeometry( 50, 50, 50 );  // will need to be altered to create bricks
-
+  // create all the bricks
   create404();
 
   raycaster = new THREE.Raycaster();
@@ -150,6 +147,8 @@ function onWindowResize() {
 
 
 function create404() {
+  // CUBE
+  cubeGeo = new THREE.BoxGeometry( 50, 50, 50 );  // will need to be altered to create bricks
   // first create the first 4
   for (var i = 0; i < obj404.four.pos.length; i++){
     createCube(null, colors[0], {pos: obj404.four.pos[i], mod: obj404.four.firstPositionMod});
