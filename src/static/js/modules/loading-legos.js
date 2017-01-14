@@ -7,6 +7,8 @@ module.exports = (function($) {
   var header;
   var lastBrick;
 
+  var previousURL;
+
   function init() {
     loadingContainer = $('.LegoContainer');
     lastBrick = $('.top-front');
@@ -19,6 +21,8 @@ module.exports = (function($) {
   function _attachEvents() {
     _hideOnBeginLoading();
     _hideOnEndLoading();
+
+    _handleUrl();
   }
 
   function _hideOnEndLoading() {
@@ -31,6 +35,12 @@ module.exports = (function($) {
   function _hideOnBeginLoading() {
     // header.hide();
     // backgroundContainer.hide();
+  }
+
+  function _handleUrl() {
+    if (document.referrer !== '') {
+      loadingContainer.hide();
+    }
   }
 
   return {

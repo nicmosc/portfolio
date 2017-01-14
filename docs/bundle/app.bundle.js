@@ -106,6 +106,8 @@
 	  var header;
 	  var lastBrick;
 	
+	  var previousURL;
+	
 	  function init() {
 	    loadingContainer = $('.LegoContainer');
 	    lastBrick = $('.top-front');
@@ -118,6 +120,8 @@
 	  function _attachEvents() {
 	    _hideOnBeginLoading();
 	    _hideOnEndLoading();
+	
+	    _handleUrl();
 	  }
 	
 	  function _hideOnEndLoading() {
@@ -130,6 +134,12 @@
 	  function _hideOnBeginLoading() {
 	    // header.hide();
 	    // backgroundContainer.hide();
+	  }
+	
+	  function _handleUrl() {
+	    if (document.referrer !== '') {
+	      loadingContainer.hide();
+	    }
 	  }
 	
 	  return {
