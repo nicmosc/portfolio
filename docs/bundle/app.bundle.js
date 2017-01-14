@@ -103,16 +103,14 @@
 	
 	  var loadingContainer;
 	  var backgroundContainer;
-	  var header;
+	  var logoContainer;
 	  var lastBrick;
-	
-	  var previousURL;
 	
 	  function init() {
 	    loadingContainer = $('.LegoContainer');
 	    lastBrick = $('.top-front');
 	    backgroundContainer = $('.Container');
-	    header = $('.Header');
+	    logoContainer = $('.Header__logoContainer');
 	
 	    _attachEvents();
 	  }
@@ -128,16 +126,19 @@
 	    lastBrick.one('webkitAnimationEnd oanimationend msAnimationEnd animationend', function (e) {
 	      console.log('animation finished');
 	      loadingContainer.fadeOut('slow');
+	      setTimeout(function () {
+	        logoContainer.removeClass('Header__logoContainer--hidden');
+	      }, 500);
 	    });
 	  }
 	
 	  function _hideOnBeginLoading() {
-	    // header.hide();
-	    // backgroundContainer.hide();
+	    logoContainer.addClass('Header__logoContainer--hidden');
 	  }
 	
 	  function _handleUrl() {
 	    if (document.referrer !== '') {
+	      logoContainer.removeClass('Header__logoContainer--hidden');
 	      loadingContainer.hide();
 	    }
 	  }
