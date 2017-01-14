@@ -1,12 +1,13 @@
 if ( ! Detector.webgl ) Detector.addGetWebGLMessage();
 
 var container;
-var camera, scene, renderer;
-var plane, cube;
+var camera, scene, renderer, controls;
+var plane, cube, brick;
 var mouse, raycaster, isShiftDown = false;
 var rollOverMesh, rollOverMaterial;
 var cubeGeo, cubeMaterial;
 var objects = [];
+
 
 var obj404 = {
   four: {
@@ -63,7 +64,6 @@ function init() {
   // SCENE
   scene = new THREE.Scene();
 
-
   // // LIGHTS
   var ambientLight = new THREE.AmbientLight( 0x606060 );
   scene.add( ambientLight );
@@ -73,8 +73,8 @@ function init() {
   light.castShadow = true;
   light.shadow = new THREE.LightShadow( new THREE.OrthographicCamera( window.innerWidth / - 2, window.innerWidth / 2, window.innerHeight / 2, window.innerHeight / - 2, 1, 10000 ) );
   light.shadow.bias = - 0.00022;
-  light.shadow.mapSize.width = 2048;
-  light.shadow.mapSize.height = 2048;
+  light.shadow.mapSize.width = 4096;
+  light.shadow.mapSize.height = 4096;
   scene.add( light );
 
 
@@ -87,7 +87,6 @@ function init() {
 
   renderer.gammaInput = true;
   renderer.gammaOutput = true;
-
   renderer.shadowMapEnabled = true;
   renderer.shadowMapSoft = true;
   renderer.shadowMap.type = THREE.PCFShadowMap;
@@ -97,6 +96,11 @@ function init() {
   camera = new THREE.OrthographicCamera( window.innerWidth / - 2, window.innerWidth / 2, window.innerHeight / 2, window.innerHeight / - 2, 1, 10000 );
   camera.position.set(600,500,500);
   camera.lookAt( new THREE.Vector3() );
+
+  // controls = new THREE.OrbitControls( camera, renderer.domElement );
+	// //controls.addEventListener( 'change', render ); // add this only if there is no animation loop (requestAnimationFrame)
+	// controls.enableDamping = true;
+	// controls.dampingFactor = 0.25;
 
 
   // ROLL-OVER CUBE
@@ -112,22 +116,20 @@ function init() {
   create404();
 
   raycaster = new THREE.Raycaster();
-
   mouse = new THREE.Vector2();
 
+  // PLANE
   var geometry = new THREE.PlaneBufferGeometry( 3000, 3000 );
   geometry.rotateX( - Math.PI / 2 );
-
   var planeMaterial = new THREE.ShadowMaterial();
   planeMaterial.opacity = 0.2;
-
   plane = new THREE.Mesh( geometry, planeMaterial );
-
   scene.add( plane );
   objects.push( plane );
   plane.receiveShadow = true;
 
 
+  // EVENT LISTENERS
   document.addEventListener( 'mousemove', onDocumentMouseMove, false );
   document.addEventListener( 'mousedown', onDocumentMouseDown, false );
   document.addEventListener( 'keydown', onDocumentKeyDown, false );
@@ -135,6 +137,7 @@ function init() {
 
   window.addEventListener( 'resize', onWindowResize, false );
 }
+
 
 function onWindowResize() {
   camera.left = window.innerWidth / - 2;
@@ -144,6 +147,7 @@ function onWindowResize() {
   camera.updateProjectionMatrix();
   renderer.setSize( window.innerWidth, window.innerHeight );
 }
+
 
 function create404() {
   // first create the first 4
@@ -157,6 +161,7 @@ function create404() {
   }
 }
 
+
 function onDocumentMouseMove( event ) {
   event.preventDefault();
   mouse.set( ( event.clientX / window.innerWidth ) * 2 - 1, - ( event.clientY / window.innerHeight ) * 2 + 1 );
@@ -167,8 +172,8 @@ function onDocumentMouseMove( event ) {
     rollOverMesh.position.copy( intersect.point ).add( intersect.face.normal );
     rollOverMesh.position.divideScalar( 50 ).floor().multiplyScalar( 50 ).addScalar( 25 );
   }
-  // render();
 }
+
 
 function onDocumentMouseDown( event ) {
   event.preventDefault();
@@ -185,31 +190,31 @@ function onDocumentMouseDown( event ) {
       var randomCol = colors[Math.floor(Math.random()*colors.length)];
       createCube(intersect, randomCol);
     }
-    // render();
   }
 }
+
 
 function createCube(intersect, color, posAttributes = null) {
   cubeMaterial = new THREE.MeshLambertMaterial( { color: parseInt(color, 16 ) } );
-  // cubeMaterial = new THREE.MeshLambertMaterial();
-  // cubeMaterial.color = new THREE.Color("rgb(212, 148, 23)");
+  var brick = createBrick(cubeMaterial);
+  // var voxel = new THREE.Mesh( cubeGeo, cubeMaterial );
 
-  var voxel = new THREE.Mesh( cubeGeo, cubeMaterial );
   if (posAttributes) {
-    voxel.position.x = posAttributes.pos.x + posAttributes.mod.x;
-    voxel.position.y = posAttributes.pos.y;
-    voxel.position.z = posAttributes.pos.z + posAttributes.mod.z;
+    brick.position.x = posAttributes.pos.x + posAttributes.mod.x;
+    brick.position.y = posAttributes.pos.y;
+    brick.position.z = posAttributes.pos.z + posAttributes.mod.z;
   }
   else {
-    voxel.position.copy( intersect.point ).add( intersect.face.normal );
-    voxel.position.divideScalar( 50 ).floor().multiplyScalar( 50 ).addScalar( 25 );
-    console.log(voxel.position);
+    brick.position.copy( intersect.point ).add( intersect.face.normal );
+    brick.position.divideScalar( 50 ).floor().multiplyScalar( 50 ).addScalar( 25 );
+    console.log(brick.position);
   }
-  voxel.castShadow = true;
-  voxel.receiveShadow = true;
-  scene.add( voxel );
-  objects.push( voxel );
+  brick.castShadow = true;
+  brick.receiveShadow = true;
+  scene.add( brick );
+  objects.push( brick );
 }
+
 
 function deleteCube(intersect) {
   if ( intersect.object != plane ) {
@@ -218,11 +223,57 @@ function deleteCube(intersect) {
   }
 }
 
+
+function mergeMeshes (meshes) {
+  var combined = new THREE.Geometry();
+  for (var i = 0; i < meshes.length; i++) {
+    meshes[i].updateMatrix();
+    combined.merge(meshes[i].geometry, meshes[i].matrix);
+  }
+  return combined;
+}
+
+
+function createBrick(material) {
+	var meshes = [];
+	var cubeGeo = new THREE.BoxGeometry( 50, 50, 50 );
+	var cylinderGeo = new THREE.CylinderGeometry( 7, 7, 7, 20);
+
+	var mesh = new THREE.Mesh(cubeGeo, material);
+	meshes.push(mesh);
+	mesh.castShadow = true;
+	mesh.receiveShadow = true;
+
+	var positions = [
+		{x: 12, y: 25, z: - 12},
+		{x: - 12, y: 25, z: 12},
+		{x: - 12, y: 25, z: - 12},
+		{x: 12, y: 25, z: 12}
+	];
+
+	for (i = 0; i < positions.length; i++) {
+		var cylinder = new THREE.Mesh(cylinderGeo, material);
+
+		cylinder.position.x = positions[i].x + 2;
+		cylinder.position.y = positions[i].y;
+		cylinder.position.z = positions[i].z + 2;
+
+		cylinder.castShadow = true;
+		cylinder.receiveShadow = true;
+		meshes.push( cylinder );
+	}
+
+	var brickGeometry = mergeMeshes(meshes);
+	return new THREE.Mesh(brickGeometry, material);;
+}
+
+
 function onDocumentKeyDown( event ) {
   switch( event.keyCode ) {
     case 16: isShiftDown = true; break;
   }
 }
+
 
 function onDocumentKeyUp( event ) {
   switch ( event.keyCode ) {
@@ -230,11 +281,13 @@ function onDocumentKeyUp( event ) {
   }
 }
 
+
 function animate() {
 	requestAnimationFrame( animate );
+  // controls.update();
 	render();
-	// stats.update();
 }
+
 
 function render() {
   renderer.render( scene, camera );
