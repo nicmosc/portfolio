@@ -110,12 +110,14 @@
 	  var backgroundContainer;
 	  var logoContainer;
 	  var lastBrick;
+	  var coverEffect;
 	
 	  function init() {
 	    loadingContainer = $('.LegoContainer');
 	    lastBrick = $('.top-front');
 	    backgroundContainer = $('.Container');
 	    logoContainer = $('.Header__logoContainer');
+	    coverEffect = $('.Cover__effect');
 	
 	    _attachEvents();
 	  }
@@ -131,6 +133,8 @@
 	    lastBrick.one('webkitAnimationEnd oanimationend msAnimationEnd animationend', function (e) {
 	      console.log('animation finished');
 	      loadingContainer.fadeOut('slow');
+	      coverEffect.addClass('Cover__effect--unveil');
+	
 	      setTimeout(function () {
 	        logoContainer.removeClass('Header__logoContainer--hidden');
 	      }, 500);
@@ -10502,8 +10506,8 @@
 	
 	module.exports = function ($) {
 	
-	  coverText;
-	  coverEffect;
+	  var coverText;
+	  var coverEffect;
 	
 	  function init() {
 	

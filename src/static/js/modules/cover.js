@@ -2,8 +2,8 @@ import jQuery from 'jquery';
 
 module.exports = (function($) {
 
-  coverText;
-  coverEffect;
+  var coverText;
+  var coverEffect;
 
   function init() {
 

@@ -24,10 +24,13 @@
     background: @black;
 		transition: all @base-timing;
 
-		animation: unhideText @base-timing;
-		animation-fill-mode: forwards;
-		animation-timing-function: ease;
-		animation-delay: @base-timing;
+
+		&--unveil {
+			animation: unhideText @base-timing;
+			animation-fill-mode: forwards;
+			animation-timing-function: ease;
+			animation-delay: @base-timing;
+		}
 
 		&--expand {
 			animation: hideText @base-timing;
