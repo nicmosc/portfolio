@@ -1,0 +1,39 @@
+._404 {
+
+  &__textContainer {
+    position: absolute;
+    width: 100%;
+    top: 70vh;
+  }
+
+  &__title {
+    font-size: 1.5em;
+    color: @gray;
+    text-align: center;
+  }
+
+  &__subtitle {
+    margin-top: 20px;
+    font-size: 1em;
+    color: @gray;
+    text-align: center;
+  }
+
+  &__hint {
+    position: absolute;
+    right: 20px;
+    bottom: 20px;
+    color: @light-gray;
+    font-size: 0.8em;
+  }
+}
+
+a {
+  text-decoration: none;
+  color: @blue;
+  transition: all @short-base-timing;
+
+  &:hover {
+    color: @dark-blue;
+  }
+}

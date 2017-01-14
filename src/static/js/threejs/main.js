@@ -206,7 +206,6 @@ function createCube(intersect, color, posAttributes = null) {
   else {
     brick.position.copy( intersect.point ).add( intersect.face.normal );
     brick.position.divideScalar( 50 ).floor().multiplyScalar( 50 ).addScalar( 25 );
-    console.log(brick.position);
   }
   brick.castShadow = true;
   brick.receiveShadow = true;
