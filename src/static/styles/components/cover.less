@@ -13,6 +13,11 @@
     font-size: 10em;
     font-family: 'square-deal';
 		position: relative;
+		transition: transform @short-base-timing ease;
+
+		&--hidden {
+			transform: scale3d(0, 1, 1);
+		}
   }
 
   &__effect {
