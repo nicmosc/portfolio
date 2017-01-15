@@ -97,6 +97,22 @@ server.on('server:register:ready', () => {
 
   server.route({
     method: 'GET',
+    path: '/design',
+    handler: (request, reply) => {
+      reply.view('design');
+    },
+  });
+
+  server.route({
+    method: 'GET',
+    path: '/3d-modelling',
+    handler: (request, reply) => {
+      reply.view('3d');
+    },
+  });
+
+  server.route({
+    method: 'GET',
     path: '/{param*}',
     handler: {
       file: path.resolve(__dirname, '../docs/404.html'),
