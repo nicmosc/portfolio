@@ -1,4 +1,5 @@
 import jQuery from 'jquery';
+import Barba from 'barba.js';
 
 module.exports = (function($) {
 
@@ -23,6 +24,7 @@ module.exports = (function($) {
     _hideOnEndLoading();
 
     _handleUrl();
+    // Barba.Dispatcher.on('linkClicked', _handleUrl);
   }
 
   function _hideOnEndLoading() {
@@ -40,7 +42,9 @@ module.exports = (function($) {
   }
 
   function _handleUrl() {
-    if (document.referrer !== '') {
+    // console.log(Barba.HistoryManager.history.filter((e) => e.namespace === 'index').length > 0);
+    console.log(document.referrer);
+    if (document.referrer !== '' /*|| Barba.HistoryManager.history.filter((e) => e.namespace === 'index').length > 0*/) {
       logoContainer.removeClass('Header__logoContainer--hidden');
       loadingContainer.hide();
     }
