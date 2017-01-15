@@ -1,125 +1,129 @@
-{{>components/loading-legos}}
+<div class="barba-container" data-namespace="index">
+  {{>components/header}}
+  
+  {{>components/loading-legos}}
 
-<div class="Container">
-  {{>components/cover}}
+  <div class="Container">
+    {{>components/cover}}
 
-  <div class="Section Section--inverse" id="works">
-    <div class="Section__descriptionContainer">
-      <div class="Section__titleContainer">
-        <div class="Section__title">
-          works
-        </div>
-      </div>
-      <div class="Section__subtitleContainer">
-        <div class="Section__subtitle">
-          A selection of some of my work throughout the years
-        </div>
-      </div>
-    </div>
-    <div class="Section__content Section__content--no-padding">
-      <div class="SquareSelectors">
-        <div class="SquareSelectors__square SquareSelectors__square--red">
-          <div class="SquareSelectors__squareText">
-            Software
-          </div>
-        </div>
-        <div class="SquareSelectors__square SquareSelectors__square--blue">
-          <div class="SquareSelectors__squareText">
-            Design &amp; Branding
-          </div>
-        </div>
-        <div class="SquareSelectors__square SquareSelectors__square--green">
-          <div class="SquareSelectors__squareText">
-            3D Modelling
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <div class="Section Section--with-top-margin" id="experience">
-    <div class="Section__descriptionContainer">
-      <div class="Section__titleContainer">
-        <div class="Section__title">
-          experience
-        </div>
-      </div>
-    </div>
-    <div class="Section__content" style="height: 300px">
-      lalala
-    </div>
-  </div>
-
-  <div class="Section Section--inverse" id="about">
-    <div class="Section__descriptionContainer">
-      <div class="Section__titleContainer">
-        <div class="Section__title">
-          about
-        </div>
-      </div>
-      <div class="Section__subtitleContainer">
-        <div class="Section__subtitle">
-          Here I talk about me lalala
-        </div>
-      </div>
-    </div>
-    <div class="Section__content" style="height: 300px">
-      lalala
-    </div>
-  </div>
-
-  <div class="Footer">
-    <div class="Section" id="contact">
+    <div class="Section Section--inverse" id="works">
       <div class="Section__descriptionContainer">
         <div class="Section__titleContainer">
           <div class="Section__title">
-            contact
+            works
           </div>
         </div>
         <div class="Section__subtitleContainer">
           <div class="Section__subtitle">
-            You can drop me a line anytime
+            A selection of some of my work throughout the years
           </div>
         </div>
       </div>
-      <div class="Section__content">
-        <div class="Footer__contactInfo">
-          nmoscholios@gmail.com
-        </div>
-        <div class="Footer__socialIcons">
-          <i class="fa fa-facebook"></i>
-          <i class="fa fa-linkedin"></i>
-          <i class="fa fa-github"></i>
-          <i class="fa fa-dribbble"></i>
-        </div>
-        <div class="Footer__bottomText">
-          <span>Created with</span>
-          <span class="Brick Brick--red">
-            <svg x="0px" y="0px" width="89px" height="85.213px">
-              <g>
-                <polygon class="light" points="44.5,0 0,19.434 0,65.779 44,46.344 44,85.213 89,65.779 89,19.434   " /></polygon>
-                <polygon class="dark" points="44.5,85.213 0,65.779 0,19.434 44.5,38.869   " /></polygon>
-                <path class="dark" d="M53.928,6.672c-0.002-2.791-4.219-4.64-9.427-4.64s-9.428,1.849-9.43,4.64l0.002,3.051 c0.002,2.648,4.214,4.641,9.422,4.641s9.422-1.992,9.422-4.641L53.928,6.672z" /></path>
-                <ellipse class="light" cx="44.506" cy="6.416" rx="9.433" ry="4.643" /></ellipse>
-                <path class="dark" d="M78.4,17.109c-0.002-2.792-4.219-4.641-9.426-4.641c-5.209,0-9.428,1.849-9.432,4.641l0.004,3.051 c0.002,2.647,4.213,4.64,9.422,4.64c5.208,0,9.422-1.992,9.422-4.64L78.4,17.109z" /></path>
-                <ellipse class="light" cx="68.979" cy="16.853" rx="9.433" ry="4.642" /></ellipse>
-                <path class="dark" d="M30.535,17.109c-0.002-2.792-4.219-4.641-9.427-4.641s-9.428,1.849-9.431,4.641l0.003,3.051 c0.002,2.647,4.214,4.64,9.422,4.64c5.208,0,9.422-1.992,9.422-4.64L30.535,17.109z" /></path>
-                <ellipse class="light" cx="21.113" cy="16.853" rx="9.433" ry="4.642" /></ellipse>
-                <path class="dark" d="M53.928,27.186c-0.002-2.791-4.219-4.639-9.427-4.639s-9.428,1.848-9.43,4.639l0.002,3.052 c0.002,2.647,4.214,4.64,9.422,4.64s9.422-1.992,9.422-4.64L53.928,27.186z" /></path>
-                <ellipse class="light" cx="44.506" cy="26.93" rx="9.433" ry="4.643" /></ellipse>
-              </g>
-            </svg>
-          </span>
-          <span style="margin-right: 2px; margin-left: 30px;"> and </span>
-          <img src="/static/images/misc/coffee.png" alt="Coffee" height="23px" style="vertical-align: middle; margin-bottom: 5px">
+      <div class="Section__content Section__content--no-padding">
+        <div class="SquareSelectors">
+          <a class="SquareSelectors__square SquareSelectors__square--red" href="/software">
+            <div class="SquareSelectors__squareText">
+              Software
+            </div>
+          </a>
+          <div class="SquareSelectors__square SquareSelectors__square--blue">
+            <div class="SquareSelectors__squareText">
+              Design &amp; Branding
+            </div>
+          </div>
+          <div class="SquareSelectors__square SquareSelectors__square--green">
+            <div class="SquareSelectors__squareText">
+              3D Modelling
+            </div>
+          </div>
         </div>
       </div>
     </div>
+
+    <div class="Section Section--with-top-margin" id="experience">
+      <div class="Section__descriptionContainer">
+        <div class="Section__titleContainer">
+          <div class="Section__title">
+            experience
+          </div>
+        </div>
+      </div>
+      <div class="Section__content" style="height: 300px">
+        lalala
+      </div>
+    </div>
+
+    <div class="Section Section--inverse" id="about">
+      <div class="Section__descriptionContainer">
+        <div class="Section__titleContainer">
+          <div class="Section__title">
+            about
+          </div>
+        </div>
+        <div class="Section__subtitleContainer">
+          <div class="Section__subtitle">
+            Here I talk about me lalala
+          </div>
+        </div>
+      </div>
+      <div class="Section__content" style="height: 300px">
+        lalala
+      </div>
+    </div>
+
+    <div class="Footer">
+      <div class="Section" id="contact">
+        <div class="Section__descriptionContainer">
+          <div class="Section__titleContainer">
+            <div class="Section__title">
+              contact
+            </div>
+          </div>
+          <div class="Section__subtitleContainer">
+            <div class="Section__subtitle">
+              You can drop me a line anytime
+            </div>
+          </div>
+        </div>
+        <div class="Section__content">
+          <div class="Footer__contactInfo">
+            nmoscholios@gmail.com
+          </div>
+          <div class="Footer__socialIcons">
+            <i class="fa fa-facebook"></i>
+            <i class="fa fa-linkedin"></i>
+            <i class="fa fa-github"></i>
+            <i class="fa fa-dribbble"></i>
+          </div>
+          <div class="Footer__bottomText">
+            <span>Created with</span>
+            <span class="Brick Brick--red">
+              <svg x="0px" y="0px" width="89px" height="85.213px">
+                <g>
+                  <polygon class="light" points="44.5,0 0,19.434 0,65.779 44,46.344 44,85.213 89,65.779 89,19.434   " /></polygon>
+                  <polygon class="dark" points="44.5,85.213 0,65.779 0,19.434 44.5,38.869   " /></polygon>
+                  <path class="dark" d="M53.928,6.672c-0.002-2.791-4.219-4.64-9.427-4.64s-9.428,1.849-9.43,4.64l0.002,3.051 c0.002,2.648,4.214,4.641,9.422,4.641s9.422-1.992,9.422-4.641L53.928,6.672z" /></path>
+                  <ellipse class="light" cx="44.506" cy="6.416" rx="9.433" ry="4.643" /></ellipse>
+                  <path class="dark" d="M78.4,17.109c-0.002-2.792-4.219-4.641-9.426-4.641c-5.209,0-9.428,1.849-9.432,4.641l0.004,3.051 c0.002,2.647,4.213,4.64,9.422,4.64c5.208,0,9.422-1.992,9.422-4.64L78.4,17.109z" /></path>
+                  <ellipse class="light" cx="68.979" cy="16.853" rx="9.433" ry="4.642" /></ellipse>
+                  <path class="dark" d="M30.535,17.109c-0.002-2.792-4.219-4.641-9.427-4.641s-9.428,1.849-9.431,4.641l0.003,3.051 c0.002,2.647,4.214,4.64,9.422,4.64c5.208,0,9.422-1.992,9.422-4.64L30.535,17.109z" /></path>
+                  <ellipse class="light" cx="21.113" cy="16.853" rx="9.433" ry="4.642" /></ellipse>
+                  <path class="dark" d="M53.928,27.186c-0.002-2.791-4.219-4.639-9.427-4.639s-9.428,1.848-9.43,4.639l0.002,3.052 c0.002,2.647,4.214,4.64,9.422,4.64s9.422-1.992,9.422-4.64L53.928,27.186z" /></path>
+                  <ellipse class="light" cx="44.506" cy="26.93" rx="9.433" ry="4.643" /></ellipse>
+                </g>
+              </svg>
+            </span>
+            <span style="margin-right: 2px; margin-left: 30px;"> and </span>
+            <img src="/static/images/misc/coffee.png" alt="Coffee" height="23px" style="vertical-align: middle; margin-bottom: 5px">
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- <h1> THIS IS INDEX </h1>
+
+    <p> {{stuff}} </p>
+
+    <img src="/static/images/favicons/favicon.png" alt=""> -->
   </div>
-
-  <!-- <h1> THIS IS INDEX </h1>
-
-  <p> {{stuff}} </p>
-
-  <img src="/static/images/favicons/favicon.png" alt=""> -->
 </div>

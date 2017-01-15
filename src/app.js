@@ -89,9 +89,9 @@ server.on('server:register:ready', () => {
 
   server.route({
     method: 'GET',
-    path: '/about',
+    path: '/software',
     handler: (request, reply) => {
-      reply.view('about');
+      reply.view('software');
     },
   });
 
