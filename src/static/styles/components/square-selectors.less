@@ -7,12 +7,16 @@
     display: flex;
     align-items: center;
 
-    transition: transform @shorter-base-timing ease-out;
+    transition: all @shorter-base-timing ease-out;
 
     &:hover {
       cursor: pointer;
-      transform: scale(1.1);
-      transition: transform @longer-base-timing ease-out;
+      transform: scale(0.98);
+      border-radius: 50%;
+    }
+
+    &:active {
+      transform: scale(0.95);
     }
 
     &--red {
