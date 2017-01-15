@@ -84,7 +84,7 @@
     }
   }
 
-  &__whiteLogoContainer {
+  &__altLogoContainer {
     width: 40px;
     height: 32px;
     transform: scale(@initial-scale);
@@ -93,6 +93,14 @@
     polygon {
       fill: @white;
     }
-    display: none;
+
+    &:hover {
+      cursor: pointer;
+      transform: scale(@hover-scale);
+    }
+
+    &--hidden {
+      transform: translate3d(200px, 0, 0);
+    }
   }
 }

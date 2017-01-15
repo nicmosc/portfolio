@@ -121,7 +121,7 @@
 	    loadingContainer = $('.LegoContainer');
 	    lastBrick = $('.top-front');
 	    backgroundContainer = $('.Container');
-	    logoContainer = $('.Header__logoContainer');
+	    logoContainer = $('.Header__logoContainer#main');
 	    coverEffect = $('.Cover__effect');
 	
 	    _attachEvents();
@@ -10416,11 +10416,13 @@
 	  var buttons;
 	  var logo;
 	  var menuContainer;
+	  var altLogo;
 	  var container;
 	
 	  function init() {
 	    header = $('.Header');
-	    logo = header.find('.Header__logoContainer');
+	    logo = header.find('.Header__logoContainer#main');
+	    altLogo = header.find('.Header__altLogoContainer');
 	    menuContainer = header.find('.Header__menuContainer');
 	    buttons = header.find('.Header__button');
 	    container = $('.Container');
@@ -10429,6 +10431,7 @@
 	  }
 	
 	  function _attachEvents() {
+	    altLogo.click(_handleClickAltLogo);
 	    logo.click(_handleClickLogo);
 	    buttons.click(_handleClickButton);
 	    container.click(_handleClickContainer);
@@ -10453,6 +10456,15 @@
 	    menuContainer.addClass('Header__menuContainer--hidden');
 	    header.addClass('Header--hidden');
 	    logo.removeClass('Header__logoContainer--active');
+	  }
+	
+	  function _handleClickAltLogo(e) {
+	    e.preventDefault();
+	    var href = this.href;
+	
+	    setTimeout(function () {
+	      return window.location = href;
+	    }, 1000);
 	  }
 	
 	  return {
@@ -10610,7 +10622,7 @@
 	    altSection = $('.AltSection');
 	    sectionTitle = altSection.find('.AltSection__title');
 	    sectionContent = altSection.find('.AltSection__content');
-	    logoBack = altSection.find('.Header');
+	    logoBack = altSection.find('.Header__altLogoContainer');
 	
 	    _reveal();
 	    _attachEvents();
@@ -10621,7 +10633,9 @@
 	  function _reveal() {
 	    sectionTitle.fadeIn(500);
 	    sectionContent.fadeIn(500);
-	    logoBack.fadeIn(500);
+	    setTimeout(function () {
+	      return logoBack.removeClass('Header__altLogoContainer--hidden');
+	    }, 1000);
 	  }
 	
 	  return {

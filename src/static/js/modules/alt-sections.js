@@ -12,7 +12,7 @@ module.exports = (function($) {
     altSection = $('.AltSection');
     sectionTitle = altSection.find('.AltSection__title');
     sectionContent = altSection.find('.AltSection__content');
-    logoBack = altSection.find('.Header');
+    logoBack = altSection.find('.Header__altLogoContainer');
 
     _reveal();
     _attachEvents();
@@ -25,7 +25,7 @@ module.exports = (function($) {
   function _reveal() {
     sectionTitle.fadeIn(500);
     sectionContent.fadeIn(500);
-    logoBack.fadeIn(500);
+    setTimeout(() => logoBack.removeClass('Header__altLogoContainer--hidden'), 1000);
   }
 
   return {

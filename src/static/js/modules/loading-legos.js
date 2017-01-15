@@ -13,7 +13,7 @@ module.exports = (function($) {
     loadingContainer = $('.LegoContainer');
     lastBrick = $('.top-front');
     backgroundContainer = $('.Container');
-    logoContainer = $('.Header__logoContainer');
+    logoContainer = $('.Header__logoContainer#main');
     coverEffect = $('.Cover__effect');
 
     _attachEvents();

@@ -6,11 +6,13 @@ module.exports = (function($) {
   var buttons;
   var logo;
   var menuContainer;
+  var altLogo;
   var container;
 
   function init() {
     header = $('.Header');
-    logo = header.find('.Header__logoContainer');
+    logo = header.find('.Header__logoContainer#main');
+    altLogo = header.find('.Header__altLogoContainer');
     menuContainer = header.find('.Header__menuContainer');
     buttons = header.find('.Header__button');
     container = $('.Container');
@@ -19,6 +21,7 @@ module.exports = (function($) {
   }
 
   function _attachEvents() {
+    altLogo.click(_handleClickAltLogo);
     logo.click(_handleClickLogo);
     buttons.click(_handleClickButton);
     container.click(_handleClickContainer);
@@ -43,6 +46,15 @@ module.exports = (function($) {
     menuContainer.addClass('Header__menuContainer--hidden');
     header.addClass('Header--hidden');
     logo.removeClass('Header__logoContainer--active');
+  }
+
+  function _handleClickAltLogo(e) {
+    e.preventDefault();
+    var href = this.href;
+
+
+
+    setTimeout(() => window.location = href, 1000);
   }
 
   return {
