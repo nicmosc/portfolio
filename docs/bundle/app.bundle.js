@@ -73,6 +73,10 @@
 	
 	var _cover2 = _interopRequireDefault(_cover);
 	
+	var _altSections = __webpack_require__(52);
+	
+	var _altSections2 = _interopRequireDefault(_altSections);
+	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
 	var $ = __webpack_require__(48);
@@ -82,6 +86,7 @@
 	  _header2.default.init();
 	  _squareSelectors2.default.init();
 	  _cover2.default.init();
+	  _altSections2.default.init();
 	});
 
 /***/ },
@@ -10565,6 +10570,48 @@
 	    setTimeout(function () {
 	      return coverEffect.removeClass('Cover__effect--expand');
 	    }, 500);
+	  }
+	
+	  return {
+	    init: init
+	  };
+	}(_jquery2.default);
+
+/***/ },
+
+/***/ 52:
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+	
+	var _jquery = __webpack_require__(48);
+	
+	var _jquery2 = _interopRequireDefault(_jquery);
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+	
+	module.exports = function ($) {
+	
+	  var altSection;
+	  var sectionTitle;
+	  var sectionContent;
+	  var logoBack;
+	
+	  function init() {
+	
+	    altSection = $('.AltSection');
+	    sectionTitle = altSection.find('.AltSection__title');
+	    sectionContent = altSection.find('.AltSection__content');
+	
+	    _reveal();
+	    _attachEvents();
+	  }
+	
+	  function _attachEvents() {}
+	
+	  function _reveal() {
+	    sectionTitle.fadeIn(500);
+	    sectionContent.fadeIn(500);
 	  }
 	
 	  return {
