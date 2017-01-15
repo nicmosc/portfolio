@@ -29,9 +29,9 @@ module.exports = (function($) {
     lastBrick.one('webkitAnimationEnd oanimationend msAnimationEnd animationend', function(e) {
       console.log('animation finished');
       loadingContainer.fadeOut('slow');
-      coverEffect.addClass('Cover__effect--unveil');
+      coverEffect.trigger('unveilClassChange');
 
-      setTimeout(function() { logoContainer.removeClass('Header__logoContainer--hidden') }, 500);
+      setTimeout(() => logoContainer.removeClass('Header__logoContainer--hidden'), 500);
     });
   }
 

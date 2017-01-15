@@ -133,10 +133,10 @@
 	    lastBrick.one('webkitAnimationEnd oanimationend msAnimationEnd animationend', function (e) {
 	      console.log('animation finished');
 	      loadingContainer.fadeOut('slow');
-	      coverEffect.addClass('Cover__effect--unveil');
+	      coverEffect.trigger('unveilClassChange');
 	
 	      setTimeout(function () {
-	        logoContainer.removeClass('Header__logoContainer--hidden');
+	        return logoContainer.removeClass('Header__logoContainer--hidden');
 	      }, 500);
 	    });
 	  }
@@ -10511,13 +10511,27 @@
 	
 	  function init() {
 	
-	    coverText = $('.Cover__text');
+	    coverText = $('.Cover__mainText');
 	    coverEffect = coverText.find('.Cover__effect');
 	
 	    _attachEvents();
 	  }
 	
-	  function _attachEvents() {}
+	  function _attachEvents() {
+	    _handleUrl();
+	    coverEffect.on('unveilClassChange', _handleBeginTextAnimation);
+	  }
+	
+	  function _handleUrl() {
+	    if (document.referrer !== '') {
+	      _handleBeginTextAnimation();
+	    }
+	  }
+	
+	  function _handleBeginTextAnimation() {
+	    coverEffect.addClass('Cover__effect--unveil');
+	    console.log('next step');
+	  }
 	
 	  return {
 	    init: init
