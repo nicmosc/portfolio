@@ -10417,12 +10417,14 @@
 	  var logo;
 	  var menuContainer;
 	  var altLogo;
+	  var eraser;
 	  var container;
 	
 	  function init() {
 	    header = $('.Header');
 	    logo = header.find('.Header__logoContainer#main');
 	    altLogo = header.find('.Header__altLogoContainer');
+	    eraser = header.find('.Header__eraser');
 	    menuContainer = header.find('.Header__menuContainer');
 	    buttons = header.find('.Header__button');
 	    container = $('.Container');
@@ -10461,6 +10463,8 @@
 	  function _handleClickAltLogo(e) {
 	    e.preventDefault();
 	    var href = this.href;
+	
+	    eraser.addClass('Header__eraser--expanded');
 	
 	    setTimeout(function () {
 	      return window.location = href;
@@ -10574,7 +10578,7 @@
 	    coverEffect.addClass('Cover__effect--unveil').delay(3000).queue(function () {
 	      return coverEffect.addClass('Cover__effect--expand').dequeue();
 	    });
-	    setTimeout(_setClassAndNextText, 4500);
+	    setTimeout(_setClassAndNextText, 4000);
 	  }
 	
 	  function _setClassAndNextText() {
@@ -10582,14 +10586,12 @@
 	      return coverText.html('im nick.').dequeue();
 	    });
 	
-	    setTimeout(_lastStep, 1500);
+	    setTimeout(_lastStep, 1000);
 	  }
 	
 	  function _lastStep() {
 	    coverMainText.removeClass('Cover__mainText--hidden');
-	    setTimeout(function () {
-	      return coverEffect.removeClass('Cover__effect--expand');
-	    }, 500);
+	    coverEffect.removeClass('Cover__effect--expand');
 	  }
 	
 	  return {

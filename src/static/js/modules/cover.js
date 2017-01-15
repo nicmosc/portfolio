@@ -28,18 +28,18 @@ module.exports = (function($) {
 
   function _handleBeginTextAnimation() {
     coverEffect.addClass('Cover__effect--unveil').delay( 3000 ).queue(() => coverEffect.addClass('Cover__effect--expand').dequeue());
-    setTimeout(_setClassAndNextText, 4500);
+    setTimeout(_setClassAndNextText, 4000);
   }
 
   function _setClassAndNextText() {
     coverMainText.addClass('Cover__mainText--hidden').delay(300).queue(() => coverText.html('im nick.').dequeue());
 
-    setTimeout(_lastStep, 1500);
+    setTimeout(_lastStep, 1000);
   }
 
   function _lastStep() {
     coverMainText.removeClass('Cover__mainText--hidden');
-    setTimeout(() => coverEffect.removeClass('Cover__effect--expand'), 500);
+    coverEffect.removeClass('Cover__effect--expand');
   }
 
   return {

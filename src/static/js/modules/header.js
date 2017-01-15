@@ -7,12 +7,14 @@ module.exports = (function($) {
   var logo;
   var menuContainer;
   var altLogo;
+  var eraser;
   var container;
 
   function init() {
     header = $('.Header');
     logo = header.find('.Header__logoContainer#main');
     altLogo = header.find('.Header__altLogoContainer');
+    eraser = header.find('.Header__eraser');
     menuContainer = header.find('.Header__menuContainer');
     buttons = header.find('.Header__button');
     container = $('.Container');
@@ -52,7 +54,7 @@ module.exports = (function($) {
     e.preventDefault();
     var href = this.href;
 
-
+    eraser.addClass('Header__eraser--expanded');
 
     setTimeout(() => window.location = href, 1000);
   }
