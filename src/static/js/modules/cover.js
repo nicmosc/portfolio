@@ -21,7 +21,7 @@ module.exports = (function($) {
   }
 
   function _handleUrl() {
-    if (document.referrer !== '') {
+    if (sessionStorage.visited == "true") {
       _handleBeginTextAnimation();
     }
   }

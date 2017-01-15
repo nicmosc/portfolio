@@ -83,4 +83,16 @@
       }
     }
   }
+
+  &__whiteLogoContainer {
+    width: 40px;
+    height: 32px;
+    transform: scale(@initial-scale);
+    transition: transform @shorter-base-timing;
+    z-index: 99;
+    polygon {
+      fill: @white;
+    }
+    display: none;
+  }
 }

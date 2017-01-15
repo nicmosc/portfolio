@@ -41,7 +41,15 @@ module.exports = (function($) {
   }
 
   function _handleUrl() {
+
     if (document.referrer !== '') {
+      sessionStorage.clear();
+      sessionStorage.visited = true;
+    }
+
+    console.log(sessionStorage);
+
+    if (sessionStorage.visited == "true") {
       logoContainer.removeClass('Header__logoContainer--hidden');
       loadingContainer.hide();
     }

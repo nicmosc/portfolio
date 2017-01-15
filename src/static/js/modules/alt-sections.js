@@ -12,6 +12,7 @@ module.exports = (function($) {
     altSection = $('.AltSection');
     sectionTitle = altSection.find('.AltSection__title');
     sectionContent = altSection.find('.AltSection__content');
+    logoBack = altSection.find('.Header');
 
     _reveal();
     _attachEvents();
@@ -24,6 +25,7 @@ module.exports = (function($) {
   function _reveal() {
     sectionTitle.fadeIn(500);
     sectionContent.fadeIn(500);
+    logoBack.fadeIn(500);
   }
 
   return {

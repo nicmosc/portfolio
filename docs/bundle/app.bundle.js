@@ -151,7 +151,15 @@
 	  }
 	
 	  function _handleUrl() {
+	
 	    if (document.referrer !== '') {
+	      sessionStorage.clear();
+	      sessionStorage.visited = true;
+	    }
+	
+	    console.log(sessionStorage);
+	
+	    if (sessionStorage.visited == "true") {
 	      logoContainer.removeClass('Header__logoContainer--hidden');
 	      loadingContainer.hide();
 	    }
@@ -10545,7 +10553,7 @@
 	  }
 	
 	  function _handleUrl() {
-	    if (document.referrer !== '') {
+	    if (sessionStorage.visited == "true") {
 	      _handleBeginTextAnimation();
 	    }
 	  }
@@ -10602,6 +10610,7 @@
 	    altSection = $('.AltSection');
 	    sectionTitle = altSection.find('.AltSection__title');
 	    sectionContent = altSection.find('.AltSection__content');
+	    logoBack = altSection.find('.Header');
 	
 	    _reveal();
 	    _attachEvents();
@@ -10612,6 +10621,7 @@
 	  function _reveal() {
 	    sectionTitle.fadeIn(500);
 	    sectionContent.fadeIn(500);
+	    logoBack.fadeIn(500);
 	  }
 	
 	  return {
