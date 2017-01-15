@@ -6,6 +6,7 @@ import Header from './modules/header';
 import SquareSelectors from './modules/square-selectors';
 import Cover from './modules/cover';
 import AltSections from './modules/alt-sections';
+import Sections from './modules/sections';
 
 $(document).ready(function() {
   LoadingLegos.init();
@@ -13,4 +14,5 @@ $(document).ready(function() {
   SquareSelectors.init();
   Cover.init();
   AltSections.init();
+  Sections.init();
 });

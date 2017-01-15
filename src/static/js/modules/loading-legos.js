@@ -50,7 +50,7 @@ module.exports = (function($) {
     console.log(sessionStorage);
 
     if (sessionStorage.visited == "true") {
-      logoContainer.removeClass('Header__logoContainer--hidden');
+      setTimeout(() => logoContainer.removeClass('Header__logoContainer--hidden'), 1000);
       loadingContainer.hide();
     }
   }

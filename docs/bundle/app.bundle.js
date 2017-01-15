@@ -77,6 +77,10 @@
 	
 	var _altSections2 = _interopRequireDefault(_altSections);
 	
+	var _sections = __webpack_require__(53);
+	
+	var _sections2 = _interopRequireDefault(_sections);
+	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
 	var $ = __webpack_require__(48);
@@ -87,6 +91,7 @@
 	  _squareSelectors2.default.init();
 	  _cover2.default.init();
 	  _altSections2.default.init();
+	  _sections2.default.init();
 	});
 
 /***/ },
@@ -160,7 +165,9 @@
 	    console.log(sessionStorage);
 	
 	    if (sessionStorage.visited == "true") {
-	      logoContainer.removeClass('Header__logoContainer--hidden');
+	      setTimeout(function () {
+	        return logoContainer.removeClass('Header__logoContainer--hidden');
+	      }, 1000);
 	      loadingContainer.hide();
 	    }
 	  }
@@ -10638,6 +10645,43 @@
 	    setTimeout(function () {
 	      return logoBack.removeClass('Header__altLogoContainer--hidden');
 	    }, 1000);
+	  }
+	
+	  return {
+	    init: init
+	  };
+	}(_jquery2.default);
+
+/***/ },
+
+/***/ 53:
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+	
+	var _jquery = __webpack_require__(48);
+	
+	var _jquery2 = _interopRequireDefault(_jquery);
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+	
+	module.exports = function ($) {
+	
+	  var sections;
+	
+	  function init() {
+	
+	    sections = $('.Section');
+	    sections.hide();
+	
+	    _reveal();
+	    _attachEvents();
+	  }
+	
+	  function _attachEvents() {}
+	
+	  function _reveal() {
+	    sections.fadeIn(1000);
 	  }
 	
 	  return {
