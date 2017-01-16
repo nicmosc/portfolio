@@ -6,6 +6,7 @@ module.exports = (function($) {
   var sectionTitle;
   var sectionContent;
   var logoBack;
+  var $body;
 
   function init() {
 
@@ -13,8 +14,10 @@ module.exports = (function($) {
     sectionTitle = altSection.find('.AltSection__title');
     sectionContent = altSection.find('.AltSection__content');
     logoBack = altSection.find('.Header__altLogoContainer');
+    $body = $('body');
 
     _reveal();
+    _setBackgroundColor();
     _attachEvents();
   }
 
@@ -26,6 +29,11 @@ module.exports = (function($) {
     sectionTitle.fadeIn(500);
     sectionContent.fadeIn(500);
     setTimeout(() => logoBack.removeClass('Header__altLogoContainer--hidden'), 1000);
+  }
+
+  function _setBackgroundColor() {
+    var bgColor = altSection.css('background');
+    $body.css('background', bgColor);
   }
 
   return {

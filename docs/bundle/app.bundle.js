@@ -10625,6 +10625,7 @@
 	  var sectionTitle;
 	  var sectionContent;
 	  var logoBack;
+	  var $body;
 	
 	  function init() {
 	
@@ -10632,8 +10633,10 @@
 	    sectionTitle = altSection.find('.AltSection__title');
 	    sectionContent = altSection.find('.AltSection__content');
 	    logoBack = altSection.find('.Header__altLogoContainer');
+	    $body = $('body');
 	
 	    _reveal();
+	    _setBackgroundColor();
 	    _attachEvents();
 	  }
 	
@@ -10645,6 +10648,11 @@
 	    setTimeout(function () {
 	      return logoBack.removeClass('Header__altLogoContainer--hidden');
 	    }, 1000);
+	  }
+	
+	  function _setBackgroundColor() {
+	    var bgColor = altSection.css('background');
+	    $body.css('background', bgColor);
 	  }
 	
 	  return {
