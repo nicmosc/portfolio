@@ -1,0 +1,197 @@
+@line-color: @gray;
+@background-color: @gray;
+
+.Timeline {
+
+  position: relative;
+  padding-top: 30px;
+  padding-bottom: 30px;
+  max-width: 1400px;
+  margin: 0 auto;
+
+  &__sideLine {
+    margin-top: 30px;
+    height: 100%;
+    width: 1px;
+    border-left: 3px solid @line-color;
+    position: absolute;
+    top: 0;
+    left: ~'calc(50% - 2px)';
+  }
+
+  &__block {
+    position: relative;
+    padding-bottom: 80px;
+
+    &:after {
+      content: "";
+      display: table;
+      clear: both;
+    }
+
+    &:last-child {
+      padding-bottom: 0;
+    }
+
+    &--right {
+      .Timeline__content {
+        float: right;
+
+        &:before {
+          left: auto;
+          right: 100%;
+          border-color: transparent;
+          border-right-color: @background-color;
+        }
+      }
+
+      .Timeline__date {
+        left: auto;
+        right: 122%;
+        text-align: right;
+      }
+    }
+  }
+
+  &__step {
+    position: absolute;
+    z-index: 2;
+    top: 30px;
+    width: 26px;
+    height: 26px;
+    border-radius: 50%;
+    background: @blue;
+    left: 50%;
+    margin-left: -14px;
+
+    /* Force Hardware Acceleration in WebKit */
+    transform: translateZ(0);
+    backface-visibility: hidden;
+
+    &--outlined {
+      background: @white;
+      border: 4px solid @blue;
+    }
+  }
+
+  &__content {
+    position: relative;
+    margin-left: 0;
+    width: 45%;
+  }
+
+  &__contentText {
+    padding: 20px;
+  }
+
+  &__contentTitle {
+    font-size: 1.3em;
+    text-align: left;
+    margin-bottom: 10px;
+    position: relative;
+    color: @gray;
+
+    &:before {
+      content: '';
+      position: absolute;
+      height: 2px;
+      bottom: -5px;
+      left: 0;
+      width: 100%;
+      background: @red;
+    }
+  }
+
+  &__contentSubtitle {
+    margin-top: 20px;
+    font-size: 0.8em;
+    text-align: left;
+    color: @dark-gray;
+  }
+
+  &__contentImage {
+    width: 100%;
+    height: 200px;
+    vertical-align: middle;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+
+    &--large {
+      height: 260px;
+    }
+  }
+
+  &__tinyContent {
+    position: absolute;
+    top: 30%;
+    padding: 20px;
+    margin-left: 0;
+    width: 45%;
+    display: flex;
+    align-items: center;
+
+    &:before {
+      content: '';
+      width: 12%;
+      border-bottom: solid 3px @line-color;
+      position: absolute;
+      right: -11%;
+      top: 50%;
+      z-index: 1;
+    }
+
+    &--dashedLine {
+      &:before {
+        border-bottom: dashed 3px @line-color;
+      }
+    }
+
+    &--right {
+      float:right;
+      right: 0;
+
+      &:before {
+        left: -11%;
+        right: auto;
+      }
+    }
+  }
+
+  &__tinyTitle {
+    font-size: 1.2em;
+    text-transform: uppercase;
+    text-align: left;
+    white-space: nowrap;
+    margin-right: 15px;
+  }
+
+  &__date {
+    float: left;
+    text-align: left;
+    padding: 12px 20px;
+    opacity: .7;
+    position: absolute;
+    width: 100%;
+    left: 122%;
+    top: 14px;
+    font-size: 1.3em;
+  }
+}
+
+// for the STEP
+@keyframes cd-bounce-1 {
+  0% {
+    opacity: 0;
+    transform: scale(0.5);
+  }
+
+  60% {
+    opacity: 1;
+    transform: scale(1.2);
+  }
+
+  100% {
+    transform: scale(1);
+  }
+}
