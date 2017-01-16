@@ -18,6 +18,7 @@ module.exports = (function($) {
 
   function _reveal() {
     sections.fadeIn(1000);
+    setTimeout(history.pushState("", document.title, window.location.pathname), 50);
   }
 
   return {
