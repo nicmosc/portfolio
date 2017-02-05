@@ -45,45 +45,45 @@
 /***/ 0:
 /***/ function(module, exports, __webpack_require__) {
 
-	module.exports = __webpack_require__(34);
+	module.exports = __webpack_require__(35);
 
 
 /***/ },
 
-/***/ 34:
+/***/ 35:
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
 	
-	__webpack_require__(35);
+	__webpack_require__(36);
 	
-	var _loadingLegos = __webpack_require__(48);
+	var _loadingLegos = __webpack_require__(49);
 	
 	var _loadingLegos2 = _interopRequireDefault(_loadingLegos);
 	
-	var _header = __webpack_require__(50);
+	var _header = __webpack_require__(51);
 	
 	var _header2 = _interopRequireDefault(_header);
 	
-	var _squareSelectors = __webpack_require__(51);
+	var _squareSelectors = __webpack_require__(52);
 	
 	var _squareSelectors2 = _interopRequireDefault(_squareSelectors);
 	
-	var _cover = __webpack_require__(52);
+	var _cover = __webpack_require__(53);
 	
 	var _cover2 = _interopRequireDefault(_cover);
 	
-	var _altSections = __webpack_require__(53);
+	var _altSections = __webpack_require__(54);
 	
 	var _altSections2 = _interopRequireDefault(_altSections);
 	
-	var _sections = __webpack_require__(54);
+	var _sections = __webpack_require__(55);
 	
 	var _sections2 = _interopRequireDefault(_sections);
 	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
-	var $ = __webpack_require__(49);
+	var $ = __webpack_require__(50);
 	
 	$(document).ready(function () {
 	  _loadingLegos2.default.init();
@@ -96,19 +96,19 @@
 
 /***/ },
 
-/***/ 35:
+/***/ 36:
 /***/ function(module, exports) {
 
 	// removed by extract-text-webpack-plugin
 
 /***/ },
 
-/***/ 48:
+/***/ 49:
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 	
-	var _jquery = __webpack_require__(49);
+	var _jquery = __webpack_require__(50);
 	
 	var _jquery2 = _interopRequireDefault(_jquery);
 	
@@ -179,7 +179,7 @@
 
 /***/ },
 
-/***/ 49:
+/***/ 50:
 /***/ function(module, exports, __webpack_require__) {
 
 	var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;/*!
@@ -10406,12 +10406,12 @@
 
 /***/ },
 
-/***/ 50:
+/***/ 51:
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 	
-	var _jquery = __webpack_require__(49);
+	var _jquery = __webpack_require__(50);
 	
 	var _jquery2 = _interopRequireDefault(_jquery);
 	
@@ -10485,12 +10485,12 @@
 
 /***/ },
 
-/***/ 51:
+/***/ 52:
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 	
-	var _jquery = __webpack_require__(49);
+	var _jquery = __webpack_require__(50);
 	
 	var _jquery2 = _interopRequireDefault(_jquery);
 	
@@ -10544,12 +10544,12 @@
 
 /***/ },
 
-/***/ 52:
+/***/ 53:
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 	
-	var _jquery = __webpack_require__(49);
+	var _jquery = __webpack_require__(50);
 	
 	var _jquery2 = _interopRequireDefault(_jquery);
 	
@@ -10608,12 +10608,12 @@
 
 /***/ },
 
-/***/ 53:
+/***/ 54:
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 	
-	var _jquery = __webpack_require__(49);
+	var _jquery = __webpack_require__(50);
 	
 	var _jquery2 = _interopRequireDefault(_jquery);
 	
@@ -10662,12 +10662,12 @@
 
 /***/ },
 
-/***/ 54:
+/***/ 55:
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 	
-	var _jquery = __webpack_require__(49);
+	var _jquery = __webpack_require__(50);
 	
 	var _jquery2 = _interopRequireDefault(_jquery);
 	
