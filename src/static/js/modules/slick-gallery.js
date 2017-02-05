@@ -1,5 +1,3 @@
-import jQuery from 'jquery';
-
 module.exports = (function($) {
 
   var slickGallery;
@@ -8,14 +6,14 @@ module.exports = (function($) {
 
     slickGallery = $('.SlickGallery');
 
-    slickGallery.slick({
-      dots: true,
-      infinite: true,
-      speed: 300,
-      slidesToShow: 1,
-      centerMode: true,
-      variableWidth: true
-    });
+    // slickGallery.slick({
+    //   dots: true,
+    //   infinite: true,
+    //   speed: 300,
+    //   slidesToShow: 1,
+    //   centerMode: true,
+    //   variableWidth: true
+    // });
   }
 
   function _attachEvents() {

@@ -30,6 +30,11 @@ module.exports = {
   plugins: [
     extractCSS,
     //extractHTML,
+    new webpack.ProvidePlugin({
+      $: "jquery",
+      jQuery: "jquery",
+      "window.jQuery": "jquery"
+   })
   ],
   module: {
     loaders: [{

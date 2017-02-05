@@ -53,11 +53,11 @@
 /***/ 36:
 /***/ function(module, exports, __webpack_require__) {
 
-	"use strict";
+	/* WEBPACK VAR INJECTION */(function($) {'use strict';
 	
-	__webpack_require__(37);
+	__webpack_require__(38);
 	
-	var _loadingLegos = __webpack_require__(50);
+	var _loadingLegos = __webpack_require__(51);
 	
 	var _loadingLegos2 = _interopRequireDefault(_loadingLegos);
 	
@@ -87,8 +87,6 @@
 	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
-	var $ = __webpack_require__(51);
-	
 	$(document).ready(function () {
 	  _loadingLegos2.default.init();
 	  _header2.default.init();
@@ -98,93 +96,11 @@
 	  _sections2.default.init();
 	  _slickGallery2.default.init();
 	});
+	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(37)))
 
 /***/ },
 
 /***/ 37:
-/***/ function(module, exports) {
-
-	// removed by extract-text-webpack-plugin
-
-/***/ },
-
-/***/ 50:
-/***/ function(module, exports, __webpack_require__) {
-
-	'use strict';
-	
-	var _jquery = __webpack_require__(51);
-	
-	var _jquery2 = _interopRequireDefault(_jquery);
-	
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-	
-	module.exports = function ($) {
-	
-	  var loadingContainer;
-	  var backgroundContainer;
-	  var logoContainer;
-	  var lastBrick;
-	  var coverEffect;
-	
-	  function init() {
-	    loadingContainer = $('.LegoContainer');
-	    lastBrick = $('.top-front');
-	    backgroundContainer = $('.Container');
-	    logoContainer = $('.Header__logoContainer#main');
-	    coverEffect = $('.Cover__effect');
-	
-	    _attachEvents();
-	  }
-	
-	  function _attachEvents() {
-	    _hideOnBeginLoading();
-	    _hideOnEndLoading();
-	
-	    _handleUrl();
-	  }
-	
-	  function _hideOnEndLoading() {
-	    lastBrick.one('webkitAnimationEnd oanimationend msAnimationEnd animationend', function (e) {
-	      console.log('animation finished');
-	      loadingContainer.fadeOut('slow');
-	      coverEffect.trigger('unveilClassChange');
-	
-	      setTimeout(function () {
-	        return logoContainer.removeClass('Header__logoContainer--hidden');
-	      }, 500);
-	    });
-	  }
-	
-	  function _hideOnBeginLoading() {
-	    logoContainer.addClass('Header__logoContainer--hidden');
-	  }
-	
-	  function _handleUrl() {
-	
-	    if (document.referrer !== '') {
-	      sessionStorage.clear();
-	      sessionStorage.visited = true;
-	    }
-	
-	    console.log(sessionStorage);
-	
-	    if (sessionStorage.visited == "true") {
-	      setTimeout(function () {
-	        return logoContainer.removeClass('Header__logoContainer--hidden');
-	      }, 1000);
-	      loadingContainer.hide();
-	    }
-	  }
-	
-	  return {
-	    init: init
-	  };
-	}(_jquery2.default);
-
-/***/ },
-
-/***/ 51:
 /***/ function(module, exports, __webpack_require__) {
 
 	var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;/*!
@@ -10411,12 +10327,95 @@
 
 /***/ },
 
+/***/ 38:
+/***/ function(module, exports) {
+
+	// removed by extract-text-webpack-plugin
+
+/***/ },
+
+/***/ 51:
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+	
+	var _jquery = __webpack_require__(37);
+	
+	var _jquery2 = _interopRequireDefault(_jquery);
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+	
+	module.exports = function ($) {
+	
+	  var loadingContainer;
+	  var backgroundContainer;
+	  var logoContainer;
+	  var lastBrick;
+	  var coverEffect;
+	
+	  function init() {
+	    loadingContainer = $('.LegoContainer');
+	    lastBrick = $('.top-front');
+	    backgroundContainer = $('.Container');
+	    logoContainer = $('.Header__logoContainer#main');
+	    coverEffect = $('.Cover__effect');
+	
+	    _attachEvents();
+	  }
+	
+	  function _attachEvents() {
+	    _hideOnBeginLoading();
+	    _hideOnEndLoading();
+	
+	    _handleUrl();
+	  }
+	
+	  function _hideOnEndLoading() {
+	    lastBrick.one('webkitAnimationEnd oanimationend msAnimationEnd animationend', function (e) {
+	      console.log('animation finished');
+	      loadingContainer.fadeOut('slow');
+	      coverEffect.trigger('unveilClassChange');
+	
+	      setTimeout(function () {
+	        return logoContainer.removeClass('Header__logoContainer--hidden');
+	      }, 500);
+	    });
+	  }
+	
+	  function _hideOnBeginLoading() {
+	    logoContainer.addClass('Header__logoContainer--hidden');
+	  }
+	
+	  function _handleUrl() {
+	
+	    if (document.referrer !== '') {
+	      sessionStorage.clear();
+	      sessionStorage.visited = true;
+	    }
+	
+	    console.log(sessionStorage);
+	
+	    if (sessionStorage.visited == "true") {
+	      setTimeout(function () {
+	        return logoContainer.removeClass('Header__logoContainer--hidden');
+	      }, 1000);
+	      loadingContainer.hide();
+	    }
+	  }
+	
+	  return {
+	    init: init
+	  };
+	}(_jquery2.default);
+
+/***/ },
+
 /***/ 52:
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 	
-	var _jquery = __webpack_require__(51);
+	var _jquery = __webpack_require__(37);
 	
 	var _jquery2 = _interopRequireDefault(_jquery);
 	
@@ -10495,7 +10494,7 @@
 
 	'use strict';
 	
-	var _jquery = __webpack_require__(51);
+	var _jquery = __webpack_require__(37);
 	
 	var _jquery2 = _interopRequireDefault(_jquery);
 	
@@ -10554,7 +10553,7 @@
 
 	'use strict';
 	
-	var _jquery = __webpack_require__(51);
+	var _jquery = __webpack_require__(37);
 	
 	var _jquery2 = _interopRequireDefault(_jquery);
 	
@@ -10618,7 +10617,7 @@
 
 	'use strict';
 	
-	var _jquery = __webpack_require__(51);
+	var _jquery = __webpack_require__(37);
 	
 	var _jquery2 = _interopRequireDefault(_jquery);
 	
@@ -10672,7 +10671,7 @@
 
 	'use strict';
 	
-	var _jquery = __webpack_require__(51);
+	var _jquery = __webpack_require__(37);
 	
 	var _jquery2 = _interopRequireDefault(_jquery);
 	
@@ -10708,13 +10707,7 @@
 /***/ 57:
 /***/ function(module, exports, __webpack_require__) {
 
-	'use strict';
-	
-	var _jquery = __webpack_require__(51);
-	
-	var _jquery2 = _interopRequireDefault(_jquery);
-	
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+	/* WEBPACK VAR INJECTION */(function(jQuery) {'use strict';
 	
 	module.exports = function ($) {
 	
@@ -10724,14 +10717,14 @@
 	
 	    slickGallery = $('.SlickGallery');
 	
-	    slickGallery.slick({
-	      dots: true,
-	      infinite: true,
-	      speed: 300,
-	      slidesToShow: 1,
-	      centerMode: true,
-	      variableWidth: true
-	    });
+	    // slickGallery.slick({
+	    //   dots: true,
+	    //   infinite: true,
+	    //   speed: 300,
+	    //   slidesToShow: 1,
+	    //   centerMode: true,
+	    //   variableWidth: true
+	    // });
 	  }
 	
 	  function _attachEvents() {}
@@ -10739,7 +10732,8 @@
 	  return {
 	    init: init
 	  };
-	}(_jquery2.default);
+	}(jQuery);
+	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(37)))
 
 /***/ }
 
