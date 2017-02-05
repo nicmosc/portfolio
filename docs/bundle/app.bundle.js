@@ -45,45 +45,49 @@
 /***/ 0:
 /***/ function(module, exports, __webpack_require__) {
 
-	module.exports = __webpack_require__(35);
+	module.exports = __webpack_require__(36);
 
 
 /***/ },
 
-/***/ 35:
+/***/ 36:
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
 	
-	__webpack_require__(36);
+	__webpack_require__(37);
 	
-	var _loadingLegos = __webpack_require__(49);
+	var _loadingLegos = __webpack_require__(50);
 	
 	var _loadingLegos2 = _interopRequireDefault(_loadingLegos);
 	
-	var _header = __webpack_require__(51);
+	var _header = __webpack_require__(52);
 	
 	var _header2 = _interopRequireDefault(_header);
 	
-	var _squareSelectors = __webpack_require__(52);
+	var _squareSelectors = __webpack_require__(53);
 	
 	var _squareSelectors2 = _interopRequireDefault(_squareSelectors);
 	
-	var _cover = __webpack_require__(53);
+	var _cover = __webpack_require__(54);
 	
 	var _cover2 = _interopRequireDefault(_cover);
 	
-	var _altSections = __webpack_require__(54);
+	var _altSections = __webpack_require__(55);
 	
 	var _altSections2 = _interopRequireDefault(_altSections);
 	
-	var _sections = __webpack_require__(55);
+	var _sections = __webpack_require__(56);
 	
 	var _sections2 = _interopRequireDefault(_sections);
 	
+	var _slickGallery = __webpack_require__(57);
+	
+	var _slickGallery2 = _interopRequireDefault(_slickGallery);
+	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
-	var $ = __webpack_require__(50);
+	var $ = __webpack_require__(51);
 	
 	$(document).ready(function () {
 	  _loadingLegos2.default.init();
@@ -92,23 +96,24 @@
 	  _cover2.default.init();
 	  _altSections2.default.init();
 	  _sections2.default.init();
+	  _slickGallery2.default.init();
 	});
 
 /***/ },
 
-/***/ 36:
+/***/ 37:
 /***/ function(module, exports) {
 
 	// removed by extract-text-webpack-plugin
 
 /***/ },
 
-/***/ 49:
+/***/ 50:
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 	
-	var _jquery = __webpack_require__(50);
+	var _jquery = __webpack_require__(51);
 	
 	var _jquery2 = _interopRequireDefault(_jquery);
 	
@@ -179,7 +184,7 @@
 
 /***/ },
 
-/***/ 50:
+/***/ 51:
 /***/ function(module, exports, __webpack_require__) {
 
 	var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;/*!
@@ -10406,12 +10411,12 @@
 
 /***/ },
 
-/***/ 51:
+/***/ 52:
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 	
-	var _jquery = __webpack_require__(50);
+	var _jquery = __webpack_require__(51);
 	
 	var _jquery2 = _interopRequireDefault(_jquery);
 	
@@ -10485,12 +10490,12 @@
 
 /***/ },
 
-/***/ 52:
+/***/ 53:
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 	
-	var _jquery = __webpack_require__(50);
+	var _jquery = __webpack_require__(51);
 	
 	var _jquery2 = _interopRequireDefault(_jquery);
 	
@@ -10544,12 +10549,12 @@
 
 /***/ },
 
-/***/ 53:
+/***/ 54:
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 	
-	var _jquery = __webpack_require__(50);
+	var _jquery = __webpack_require__(51);
 	
 	var _jquery2 = _interopRequireDefault(_jquery);
 	
@@ -10608,12 +10613,12 @@
 
 /***/ },
 
-/***/ 54:
+/***/ 55:
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 	
-	var _jquery = __webpack_require__(50);
+	var _jquery = __webpack_require__(51);
 	
 	var _jquery2 = _interopRequireDefault(_jquery);
 	
@@ -10662,12 +10667,12 @@
 
 /***/ },
 
-/***/ 55:
+/***/ 56:
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 	
-	var _jquery = __webpack_require__(50);
+	var _jquery = __webpack_require__(51);
 	
 	var _jquery2 = _interopRequireDefault(_jquery);
 	
@@ -10692,6 +10697,44 @@
 	    sections.fadeIn(1000);
 	    setTimeout(history.pushState("", document.title, window.location.pathname), 10);
 	  }
+	
+	  return {
+	    init: init
+	  };
+	}(_jquery2.default);
+
+/***/ },
+
+/***/ 57:
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+	
+	var _jquery = __webpack_require__(51);
+	
+	var _jquery2 = _interopRequireDefault(_jquery);
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+	
+	module.exports = function ($) {
+	
+	  var slickGallery;
+	
+	  function init() {
+	
+	    slickGallery = $('.SlickGallery');
+	
+	    slickGallery.slick({
+	      dots: true,
+	      infinite: true,
+	      speed: 300,
+	      slidesToShow: 1,
+	      centerMode: true,
+	      variableWidth: true
+	    });
+	  }
+	
+	  function _attachEvents() {}
 	
 	  return {
 	    init: init

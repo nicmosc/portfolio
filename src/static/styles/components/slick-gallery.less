@@ -1,0 +1,64 @@
+.SlickGallery {
+
+  display: flex;
+  align-items: center;
+  position: relative;
+
+  // &:before {
+  //   content: '';
+  //   position: absolute;
+  //   height: 100%;
+  //   right: -1px;
+  //   width: 15px;
+  //   background: linear-gradient(to right, rgba(250,250,250,0) , @grey-50);
+  //   z-index: 99;
+  // }
+  //
+  // &:after {
+  //   content: '';
+  //   position: absolute;
+  //   height: 100%;
+  //   left: -1px;
+  //   width: 15px;
+  //   background: linear-gradient(to left, rgba(250,250,250,0) , @grey-50);
+  //   z-index: 99;
+  // }
+
+  &__item {
+    position: relative;
+    height: 400px;
+    width: 200px;
+    vertical-align: middle;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    margin: 0 50px;
+  }
+
+  // SLICK OVERRIDES
+
+  .slick-track {
+    padding: 50px 0;
+  }
+
+  .slick-arrow {
+    z-index: 999;
+    height: 100%;
+    width: 200px;
+
+    &:hover {
+      cursor: pointer;
+    }
+
+    &:before {
+      content: '';
+    }
+    &:after {
+      content: '';
+    }
+  }
+
+  .slick-dots {
+    left: 0;
+  }
+}

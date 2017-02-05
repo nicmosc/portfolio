@@ -7,6 +7,7 @@ import SquareSelectors from './modules/square-selectors';
 import Cover from './modules/cover';
 import AltSections from './modules/alt-sections';
 import Sections from './modules/sections';
+import SlickGallery from './modules/slick-gallery';
 
 $(document).ready(function() {
   LoadingLegos.init();
@@ -15,4 +16,5 @@ $(document).ready(function() {
   Cover.init();
   AltSections.init();
   Sections.init();
+  SlickGallery.init();
 });
